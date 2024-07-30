@@ -1,0 +1,10 @@
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/launcher_icon/qa/logo_only_qa.png"
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/launcher_icon/qa/logo_only_qa.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
