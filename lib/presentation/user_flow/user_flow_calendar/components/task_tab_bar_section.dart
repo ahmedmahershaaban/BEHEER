@@ -62,7 +62,7 @@ class TaskTabBarSection extends StatelessWidget {
                               child: Container(
                                 padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 16.w),
                                 decoration: BoxDecoration(
-                                  color: kNeutralColors[0],
+                                  color: context.isDarkMode ? kNeutralColorsDarkMode[700] : kNeutralColors[0],
                                   borderRadius: BorderRadius.circular(8.r),
                                   boxShadow: [
                                     BoxShadow(
@@ -85,7 +85,7 @@ class TaskTabBarSection extends StatelessWidget {
                                     Text(
                                       'Add new task by clicking + icon',
                                       style: context.font12w400.copyWith(
-                                        color: kNeutralColors[600],
+                                        color: context.isDarkMode ? kNeutralColorsDarkMode[0] : kNeutralColors[600],
                                       ),
                                     ),
                                   ],

@@ -52,7 +52,7 @@ class _SplashPageState extends State<SplashPage> {
                   debugPrint('[authenticated] [userModelOption] [Null]');
                   context.router.replaceAll([const SignInSignUpRoute()]);
                 }, (userModel) {
-                  debugPrint('[authenticated] [userModelOption] [$userModel]');
+                  // debugPrint('[authenticated] [userModelOption] [$userModel]');
                   if (userModel.isBlocked) {
                     IconSnackBar.show(
                       context: context,

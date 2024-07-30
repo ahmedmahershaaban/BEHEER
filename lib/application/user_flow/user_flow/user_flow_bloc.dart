@@ -146,20 +146,16 @@ class UserFlowBloc extends Bloc<UserFlowEvent, UserFlowState> {
         dayNumber: event.date.day,
       ));
     }
-    print('Asking for stream');
     await emit.forEach(
       calenderDayModelStream!,
       onData: (Either<UserFlowFailure, Option<CalenderDayModel>> onData) {
         return onData.fold((f) {
-          print('Data from for stream with failure $f');
-
           return state.copyWith(
             calenderPageIsLoadingForCalenderDayModel: false,
             calendarDayModel: none(),
             userFlowFailureOrSuccessOption: some(left(f)),
           );
         }, (calenderDayModel) {
-          print('Data from for stream with calendaer model option ${calenderDayModel}');
           return state.copyWith(
             calenderPageIsLoadingForCalenderDayModel: false,
             calendarDayModel: calenderDayModel.fold(
@@ -171,7 +167,6 @@ class UserFlowBloc extends Bloc<UserFlowEvent, UserFlowState> {
         });
       },
       onError: (e, s) {
-        print('onError from for stream with calendaer model option ${e} |||  $s');
         return state.copyWith(
           calenderPageIsLoadingForCalenderDayModel: false,
           calendarDayModel: none(),

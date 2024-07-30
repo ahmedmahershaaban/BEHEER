@@ -240,10 +240,20 @@ class AuthFacade implements IAuthFacade {
           lastUpdate: DuoDate.now().getOrCrash(),
           creationDate: DuoDate.now().getOrCrash(),
         );
+
+        await userDocument.set(
+          userDto.toJson(),
+          SetOptions(merge: true),
+        );
         await createProjectsStatisticsModelForNewUsers();
       } else {
         userDto = userDto.copyWith(
           notificationToken: notificationToken,
+        );
+
+        await userDocument.set(
+          userDto.toJson(),
+          SetOptions(merge: true),
         );
       }
 
