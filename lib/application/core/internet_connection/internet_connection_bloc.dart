@@ -7,6 +7,8 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'internet_connection_event.dart';
 import 'internet_connection_state.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @Singleton()
 class InternetConnectionBloc extends Bloc<InternetConnectionEvent, InternetConnectionState> {
   final Connectivity _connectivity;

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
+/// Config Reader is responsible to get the secret keys for each environment variable
+/// and provide them by initialize lazy singleton interface to get them throw the application.
 abstract class ConfigReader {
   static Map<String, dynamic> _config = {};
 

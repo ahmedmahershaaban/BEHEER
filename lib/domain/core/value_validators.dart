@@ -4,6 +4,10 @@ import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:ringo_media_management/domain/core/failures.dart';
 
+/// Validate if length of input `String` is not exceeding [maxLength].
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.exceedingLength].
 Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
   int maxLength,
@@ -17,6 +21,10 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
   }
 }
 
+/// Validate if input `String` is not empty.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.empty].
 Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
@@ -25,6 +33,10 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
+/// Validate if input `String?` is not `null`.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.nullValue].
 Either<ValueFailure<String>, String> validateNullValue(String? input) {
   if (input != null) {
     return right(input);
@@ -33,6 +45,10 @@ Either<ValueFailure<String>, String> validateNullValue(String? input) {
   }
 }
 
+/// Validate if input `String` is `int` type.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidNumber].
 Either<ValueFailure<String>, String> validateInt(String input) {
   try {
     int.parse(input);
@@ -42,6 +58,10 @@ Either<ValueFailure<String>, String> validateInt(String input) {
   }
 }
 
+/// Validate if input `String` is `double` type.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidNumber].
 Either<ValueFailure<String>, String> validateDouble(String input) {
   try {
     double.parse(input);
@@ -51,6 +71,10 @@ Either<ValueFailure<String>, String> validateDouble(String input) {
   }
 }
 
+/// Validate if input `String` is one line and does not contains any breaking lines.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.multiline].
 Either<ValueFailure<String>, String> validateSingleLine(String input) {
   if (input.contains('\n')) {
     return left(ValueFailure.multiline(failedValue: input));
@@ -59,6 +83,10 @@ Either<ValueFailure<String>, String> validateSingleLine(String input) {
   }
 }
 
+/// Validate if input `KtList` length is not exceeding the [maxLength].
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.listTooLong].
 Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
   KtList<T> input,
   int maxLength,
@@ -75,6 +103,10 @@ Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
   }
 }
 
+/// Validate if input `String` is matching the [emailRegex].
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidEmail].
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   const emailRegex = r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
@@ -84,6 +116,10 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   }
 }
 
+/// Validate if input `String` is matching the [phoneNumberRegex].
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidPhoneNumber].
 Either<ValueFailure<String>, String> validatePhoneNumber(String input) {
   String phoneNumberRegex = r'^\+?[0-9\s\-()]{10,15}$';
   if (RegExp(phoneNumberRegex).hasMatch(input)) {
@@ -93,6 +129,10 @@ Either<ValueFailure<String>, String> validatePhoneNumber(String input) {
   }
 }
 
+/// Validate if input `String` is matching the [urlRegex].
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidUrl].
 Either<ValueFailure<String>, String> validateUrl(String input) {
   String urlRegex = r'^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$';
   if (RegExp(urlRegex).hasMatch(input)) {
@@ -102,6 +142,10 @@ Either<ValueFailure<String>, String> validateUrl(String input) {
   }
 }
 
+/// Validate if input `String` is matching the [passwordRegex].
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidPassword].
 Either<ValueFailure<String>, String> validatePassword(String input) {
   const passwordRegex = r"""^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$""";
   // const passwordRegex = r"""^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$^\-_\=\+\\|()\[\]\{\}%&*~]).{8,}$""";
@@ -112,6 +156,10 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
+/// Validate if input `Color` length is a valid length.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.invalidColorLength].
 Either<ValueFailure<Color>, Color> validateColorLength(Color input) {
   if (input.value.toString().length == 10) {
     return right(input);

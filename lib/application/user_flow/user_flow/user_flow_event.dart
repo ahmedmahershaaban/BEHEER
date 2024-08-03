@@ -6,6 +6,8 @@ import 'package:ringo_media_management/domain/user_flow/value_objects.dart';
 
 part 'user_flow_event.freezed.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @freezed
 abstract class UserFlowEvent with _$UserFlowEvent {
   // General Events

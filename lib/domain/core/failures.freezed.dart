@@ -21,6 +21,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -38,6 +39,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -55,6 +57,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -73,6 +76,8 @@ mixin _$ValueFailure<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -90,6 +95,8 @@ mixin _$ValueFailure<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -107,6 +114,8 @@ mixin _$ValueFailure<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -218,6 +227,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -238,6 +248,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -258,6 +269,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -282,6 +294,8 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -302,6 +316,8 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -322,6 +338,8 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -422,6 +440,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -442,6 +461,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -462,6 +482,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -486,6 +507,8 @@ class _$EmptyImpl<T> implements Empty<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -506,6 +529,8 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -526,6 +551,8 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -595,6 +622,7 @@ class _$NullValueImpl<T> implements NullValue<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -615,6 +643,7 @@ class _$NullValueImpl<T> implements NullValue<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -635,6 +664,7 @@ class _$NullValueImpl<T> implements NullValue<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -659,6 +689,8 @@ class _$NullValueImpl<T> implements NullValue<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -679,6 +711,8 @@ class _$NullValueImpl<T> implements NullValue<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -699,6 +733,8 @@ class _$NullValueImpl<T> implements NullValue<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -720,6 +756,189 @@ class _$NullValueImpl<T> implements NullValue<T> {
 
 abstract class NullValue<T> implements ValueFailure<T> {
   const factory NullValue() = _$NullValueImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$UnexpectedConversionErrorImplCopyWith<T, $Res> {
+  factory _$$UnexpectedConversionErrorImplCopyWith(
+          _$UnexpectedConversionErrorImpl<T> value,
+          $Res Function(_$UnexpectedConversionErrorImpl<T>) then) =
+      __$$UnexpectedConversionErrorImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UnexpectedConversionErrorImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res,
+        _$UnexpectedConversionErrorImpl<T>>
+    implements _$$UnexpectedConversionErrorImplCopyWith<T, $Res> {
+  __$$UnexpectedConversionErrorImplCopyWithImpl(
+      _$UnexpectedConversionErrorImpl<T> _value,
+      $Res Function(_$UnexpectedConversionErrorImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UnexpectedConversionErrorImpl<T>
+    implements UnexpectedConversionError<T> {
+  const _$UnexpectedConversionErrorImpl();
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.unexpectedConversionError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UnexpectedConversionErrorImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) empty,
+    required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
+    required TResult Function(T failedValue) unexpectedValue,
+    required TResult Function(T failedValue) invalidNumber,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue, int max) listTooLong,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) invalidOptionString,
+    required TResult Function(T failedValue) invalidUrl,
+    required TResult Function(T failedValue) invalidPhoneNumber,
+    required TResult Function(T failedValue) invalidPassword,
+    required TResult Function(T failedValue) invalidColorLength,
+  }) {
+    return unexpectedConversionError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
+    TResult? Function(T failedValue)? unexpectedValue,
+    TResult? Function(T failedValue)? invalidNumber,
+    TResult? Function(T failedValue)? multiline,
+    TResult? Function(T failedValue, int max)? listTooLong,
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? invalidOptionString,
+    TResult? Function(T failedValue)? invalidUrl,
+    TResult? Function(T failedValue)? invalidPhoneNumber,
+    TResult? Function(T failedValue)? invalidPassword,
+    TResult? Function(T failedValue)? invalidColorLength,
+  }) {
+    return unexpectedConversionError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
+    TResult Function(T failedValue)? unexpectedValue,
+    TResult Function(T failedValue)? invalidNumber,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue, int max)? listTooLong,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? invalidOptionString,
+    TResult Function(T failedValue)? invalidUrl,
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidPassword,
+    TResult Function(T failedValue)? invalidColorLength,
+    required TResult orElse(),
+  }) {
+    if (unexpectedConversionError != null) {
+      return unexpectedConversionError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
+    required TResult Function(UnexpectedValue<T> value) unexpectedValue,
+    required TResult Function(InvalidNumber<T> value) invalidNumber,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(ListTooLong<T> value) listTooLong,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(InvalidOptionString<T> value) invalidOptionString,
+    required TResult Function(InvalidUrl<T> value) invalidUrl,
+    required TResult Function(InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(InvalidPassword<T> value) invalidPassword,
+    required TResult Function(InvalidColorLength<T> value) invalidColorLength,
+  }) {
+    return unexpectedConversionError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
+    TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
+    TResult? Function(InvalidNumber<T> value)? invalidNumber,
+    TResult? Function(Multiline<T> value)? multiline,
+    TResult? Function(ListTooLong<T> value)? listTooLong,
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(InvalidOptionString<T> value)? invalidOptionString,
+    TResult? Function(InvalidUrl<T> value)? invalidUrl,
+    TResult? Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult? Function(InvalidPassword<T> value)? invalidPassword,
+    TResult? Function(InvalidColorLength<T> value)? invalidColorLength,
+  }) {
+    return unexpectedConversionError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
+    TResult Function(UnexpectedValue<T> value)? unexpectedValue,
+    TResult Function(InvalidNumber<T> value)? invalidNumber,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(InvalidOptionString<T> value)? invalidOptionString,
+    TResult Function(InvalidUrl<T> value)? invalidUrl,
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidPassword<T> value)? invalidPassword,
+    TResult Function(InvalidColorLength<T> value)? invalidColorLength,
+    required TResult orElse(),
+  }) {
+    if (unexpectedConversionError != null) {
+      return unexpectedConversionError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnexpectedConversionError<T> implements ValueFailure<T> {
+  const factory UnexpectedConversionError() =
+      _$UnexpectedConversionErrorImpl<T>;
 }
 
 /// @nodoc
@@ -792,6 +1011,7 @@ class _$UnexpectedValueImpl<T> implements UnexpectedValue<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -812,6 +1032,7 @@ class _$UnexpectedValueImpl<T> implements UnexpectedValue<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -832,6 +1053,7 @@ class _$UnexpectedValueImpl<T> implements UnexpectedValue<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -856,6 +1078,8 @@ class _$UnexpectedValueImpl<T> implements UnexpectedValue<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -876,6 +1100,8 @@ class _$UnexpectedValueImpl<T> implements UnexpectedValue<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -896,6 +1122,8 @@ class _$UnexpectedValueImpl<T> implements UnexpectedValue<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -995,6 +1223,7 @@ class _$InvalidNumberImpl<T> implements InvalidNumber<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -1015,6 +1244,7 @@ class _$InvalidNumberImpl<T> implements InvalidNumber<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -1035,6 +1265,7 @@ class _$InvalidNumberImpl<T> implements InvalidNumber<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -1059,6 +1290,8 @@ class _$InvalidNumberImpl<T> implements InvalidNumber<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -1079,6 +1312,8 @@ class _$InvalidNumberImpl<T> implements InvalidNumber<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -1099,6 +1334,8 @@ class _$InvalidNumberImpl<T> implements InvalidNumber<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -1197,6 +1434,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -1217,6 +1455,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -1237,6 +1476,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -1261,6 +1501,8 @@ class _$MultilineImpl<T> implements Multiline<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -1281,6 +1523,8 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -1301,6 +1545,8 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -1407,6 +1653,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -1427,6 +1674,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -1447,6 +1695,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -1471,6 +1720,8 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -1491,6 +1742,8 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -1511,6 +1764,8 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -1612,6 +1867,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -1632,6 +1888,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -1652,6 +1909,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -1676,6 +1934,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -1696,6 +1956,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -1716,6 +1978,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -1815,6 +2079,7 @@ class _$InvalidOptionStringImpl<T> implements InvalidOptionString<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -1835,6 +2100,7 @@ class _$InvalidOptionStringImpl<T> implements InvalidOptionString<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -1855,6 +2121,7 @@ class _$InvalidOptionStringImpl<T> implements InvalidOptionString<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -1879,6 +2146,8 @@ class _$InvalidOptionStringImpl<T> implements InvalidOptionString<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -1899,6 +2168,8 @@ class _$InvalidOptionStringImpl<T> implements InvalidOptionString<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -1919,6 +2190,8 @@ class _$InvalidOptionStringImpl<T> implements InvalidOptionString<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -2017,6 +2290,7 @@ class _$InvalidUrlImpl<T> implements InvalidUrl<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -2037,6 +2311,7 @@ class _$InvalidUrlImpl<T> implements InvalidUrl<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -2057,6 +2332,7 @@ class _$InvalidUrlImpl<T> implements InvalidUrl<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -2081,6 +2357,8 @@ class _$InvalidUrlImpl<T> implements InvalidUrl<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -2101,6 +2379,8 @@ class _$InvalidUrlImpl<T> implements InvalidUrl<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -2121,6 +2401,8 @@ class _$InvalidUrlImpl<T> implements InvalidUrl<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -2220,6 +2502,7 @@ class _$InvalidPhoneNumberImpl<T> implements InvalidPhoneNumber<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -2240,6 +2523,7 @@ class _$InvalidPhoneNumberImpl<T> implements InvalidPhoneNumber<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -2260,6 +2544,7 @@ class _$InvalidPhoneNumberImpl<T> implements InvalidPhoneNumber<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -2284,6 +2569,8 @@ class _$InvalidPhoneNumberImpl<T> implements InvalidPhoneNumber<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -2304,6 +2591,8 @@ class _$InvalidPhoneNumberImpl<T> implements InvalidPhoneNumber<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -2324,6 +2613,8 @@ class _$InvalidPhoneNumberImpl<T> implements InvalidPhoneNumber<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -2423,6 +2714,7 @@ class _$InvalidPasswordImpl<T> implements InvalidPassword<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -2443,6 +2735,7 @@ class _$InvalidPasswordImpl<T> implements InvalidPassword<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -2463,6 +2756,7 @@ class _$InvalidPasswordImpl<T> implements InvalidPassword<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -2487,6 +2781,8 @@ class _$InvalidPasswordImpl<T> implements InvalidPassword<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -2507,6 +2803,8 @@ class _$InvalidPasswordImpl<T> implements InvalidPassword<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -2527,6 +2825,8 @@ class _$InvalidPasswordImpl<T> implements InvalidPassword<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,
@@ -2626,6 +2926,7 @@ class _$InvalidColorLengthImpl<T> implements InvalidColorLength<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function() nullValue,
+    required TResult Function() unexpectedConversionError,
     required TResult Function(T failedValue) unexpectedValue,
     required TResult Function(T failedValue) invalidNumber,
     required TResult Function(T failedValue) multiline,
@@ -2646,6 +2947,7 @@ class _$InvalidColorLengthImpl<T> implements InvalidColorLength<T> {
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? empty,
     TResult? Function()? nullValue,
+    TResult? Function()? unexpectedConversionError,
     TResult? Function(T failedValue)? unexpectedValue,
     TResult? Function(T failedValue)? invalidNumber,
     TResult? Function(T failedValue)? multiline,
@@ -2666,6 +2968,7 @@ class _$InvalidColorLengthImpl<T> implements InvalidColorLength<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function()? nullValue,
+    TResult Function()? unexpectedConversionError,
     TResult Function(T failedValue)? unexpectedValue,
     TResult Function(T failedValue)? invalidNumber,
     TResult Function(T failedValue)? multiline,
@@ -2690,6 +2993,8 @@ class _$InvalidColorLengthImpl<T> implements InvalidColorLength<T> {
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(NullValue<T> value) nullValue,
+    required TResult Function(UnexpectedConversionError<T> value)
+        unexpectedConversionError,
     required TResult Function(UnexpectedValue<T> value) unexpectedValue,
     required TResult Function(InvalidNumber<T> value) invalidNumber,
     required TResult Function(Multiline<T> value) multiline,
@@ -2710,6 +3015,8 @@ class _$InvalidColorLengthImpl<T> implements InvalidColorLength<T> {
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(NullValue<T> value)? nullValue,
+    TResult? Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult? Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult? Function(InvalidNumber<T> value)? invalidNumber,
     TResult? Function(Multiline<T> value)? multiline,
@@ -2730,6 +3037,8 @@ class _$InvalidColorLengthImpl<T> implements InvalidColorLength<T> {
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(Empty<T> value)? empty,
     TResult Function(NullValue<T> value)? nullValue,
+    TResult Function(UnexpectedConversionError<T> value)?
+        unexpectedConversionError,
     TResult Function(UnexpectedValue<T> value)? unexpectedValue,
     TResult Function(InvalidNumber<T> value)? invalidNumber,
     TResult Function(Multiline<T> value)? multiline,

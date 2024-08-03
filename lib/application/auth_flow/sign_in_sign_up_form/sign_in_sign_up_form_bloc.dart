@@ -9,6 +9,8 @@ import 'package:ringo_media_management/domain/auth_flow/value_objects.dart';
 import 'sign_in_sign_up_form_event.dart';
 import 'sign_in_sign_up_form_state.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @injectable
 class SignInSignUpFormBloc extends Bloc<SignInSignUpFormEvent, SignInSignUpFormState> {
   final IAuthFacade _iAuthFacade;

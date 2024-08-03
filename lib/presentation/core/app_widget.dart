@@ -7,6 +7,8 @@ import 'package:ringo_media_management/infrastructure/core/injection/injection.d
 import 'package:ringo_media_management/presentation/core/app_config.dart';
 import 'package:ringo_media_management/presentation/core/routes/router.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 class AppWidget extends StatelessWidget {
   AppWidget({super.key});
 

@@ -20,15 +20,30 @@ ProjectModelDto _$ProjectModelDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProjectModelDto {
+  /// The model unique ID.
   String get id => throw _privateConstructorUsedError;
+
+  /// The model title.
   String get title => throw _privateConstructorUsedError;
+
+  /// The model description.
   String get description => throw _privateConstructorUsedError;
+
+  /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
   double get projectCompleteness => throw _privateConstructorUsedError;
+
+  /// Returns whether the project is completed or not.
   bool get isDone => throw _privateConstructorUsedError;
+
+  /// The project dead line date time.
   @TimestampConverter()
   DateTime get deadLine => throw _privateConstructorUsedError;
+
+  /// The project last update date.
   @TimestampConverter()
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The project creation date.
   @TimestampConverter()
   DateTime get creationDate => throw _privateConstructorUsedError;
 
@@ -207,22 +222,37 @@ class _$projectModelDtoImpl extends _projectModelDto {
   factory _$projectModelDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$projectModelDtoImplFromJson(json);
 
+  /// The model unique ID.
   @override
   final String id;
+
+  /// The model title.
   @override
   final String title;
+
+  /// The model description.
   @override
   final String description;
+
+  /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
   @override
   final double projectCompleteness;
+
+  /// Returns whether the project is completed or not.
   @override
   final bool isDone;
+
+  /// The project dead line date time.
   @override
   @TimestampConverter()
   final DateTime deadLine;
+
+  /// The project last update date.
   @override
   @TimestampConverter()
   final DateTime lastUpdate;
+
+  /// The project creation date.
   @override
   @TimestampConverter()
   final DateTime creationDate;
@@ -289,22 +319,38 @@ abstract class _projectModelDto extends ProjectModelDto {
       _$projectModelDtoImpl.fromJson;
 
   @override
+
+  /// The model unique ID.
   String get id;
   @override
+
+  /// The model title.
   String get title;
   @override
+
+  /// The model description.
   String get description;
   @override
+
+  /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
   double get projectCompleteness;
   @override
+
+  /// Returns whether the project is completed or not.
   bool get isDone;
   @override
+
+  /// The project dead line date time.
   @TimestampConverter()
   DateTime get deadLine;
   @override
+
+  /// The project last update date.
   @TimestampConverter()
   DateTime get lastUpdate;
   @override
+
+  /// The project creation date.
   @TimestampConverter()
   DateTime get creationDate;
   @override

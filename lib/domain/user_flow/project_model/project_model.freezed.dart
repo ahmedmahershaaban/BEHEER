@@ -16,13 +16,62 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProjectModel {
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id => throw _privateConstructorUsedError;
+
+  /// The model title.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   ProjectTitle get title => throw _privateConstructorUsedError;
+
+  /// The model description.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
   ProjectDescription get description => throw _privateConstructorUsedError;
+
+  /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.invalidNumber].
+  ///
+  /// An [UnexpectedValueError] maybe thrown for the following seniors:
+  /// 1- the [toDouble] function is called while the value inside the [ValidatedDouble] is [ValueFailure].
   ValidatedDouble get projectCompleteness => throw _privateConstructorUsedError;
+
+  /// Returns whether the project is completed or not.
+  ///
+  /// By default this property will be 'false'.
   bool get isDone => throw _privateConstructorUsedError;
+
+  /// The project dead line date time.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get deadLine => throw _privateConstructorUsedError;
+
+  /// The project last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The project creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -196,20 +245,69 @@ class _$ProjectModelImpl extends _ProjectModel {
       required this.creationDate})
       : super._();
 
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   @override
   final UniqueId id;
+
+  /// The model title.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   @override
   final ProjectTitle title;
+
+  /// The model description.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
   @override
   final ProjectDescription description;
+
+  /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.invalidNumber].
+  ///
+  /// An [UnexpectedValueError] maybe thrown for the following seniors:
+  /// 1- the [toDouble] function is called while the value inside the [ValidatedDouble] is [ValueFailure].
   @override
   final ValidatedDouble projectCompleteness;
+
+  /// Returns whether the project is completed or not.
+  ///
+  /// By default this property will be 'false'.
   @override
   final bool isDone;
+
+  /// The project dead line date time.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate deadLine;
+
+  /// The project last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate lastUpdate;
+
+  /// The project creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate creationDate;
 
@@ -262,20 +360,70 @@ abstract class _ProjectModel extends ProjectModel {
   const _ProjectModel._() : super._();
 
   @override
+
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id;
   @override
+
+  /// The model title.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   ProjectTitle get title;
   @override
+
+  /// The model description.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
   ProjectDescription get description;
   @override
+
+  /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
+  ///
+  /// Contains `Either<ValueFailure<String>, String>`.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.invalidNumber].
+  ///
+  /// An [UnexpectedValueError] maybe thrown for the following seniors:
+  /// 1- the [toDouble] function is called while the value inside the [ValidatedDouble] is [ValueFailure].
   ValidatedDouble get projectCompleteness;
   @override
+
+  /// Returns whether the project is completed or not.
+  ///
+  /// By default this property will be 'false'.
   bool get isDone;
   @override
+
+  /// The project dead line date time.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get deadLine;
   @override
+
+  /// The project last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate;
   @override
+
+  /// The project creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate;
   @override
   @JsonKey(ignore: true)

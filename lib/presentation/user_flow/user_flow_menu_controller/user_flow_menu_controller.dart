@@ -34,6 +34,8 @@ import 'package:ringo_media_management/presentation/user_flow/user_flow_menu_con
 import 'package:ringo_media_management/presentation/user_flow/user_flow_profile/user_flow_profile_page.dart';
 import 'package:ringo_media_management/presentation/user_flow/user_flow_project_summary/user_flow_project_summary_page.dart';
 
+/// This Page and it's Components will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @RoutePage()
 class UserFlowMenuControllerPage extends StatelessWidget {
   const UserFlowMenuControllerPage({super.key});

@@ -17,6 +17,8 @@ part 'user_flow_state.freezed.dart';
 /// 2- If there is no big logic we could combine all the logic into 1 [Bloc]
 /// I will use here the second case By using Only 1 [Bloc]
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @freezed
 abstract class UserFlowState with _$UserFlowState {
   const factory UserFlowState({

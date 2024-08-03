@@ -26,6 +26,9 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   /// This failure will occur when the input value of [ValueObject] is equal to `null`.
   const factory ValueFailure.nullValue() = NullValue;
 
+  /// This failure will occur when the input type of [ValueObject] can not be converted with the needed type for [ValueObject].
+  const factory ValueFailure.unexpectedConversionError() = UnexpectedConversionError;
+
   /// This failure will occur when the input type of [ValueObject] is not matching what is needing.
   const factory ValueFailure.unexpectedValue({
     required T failedValue,

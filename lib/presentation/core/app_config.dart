@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 class AppConfig extends InheritedWidget {
   final String appTitle;
   final String buildFlavor;

@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 
+/// This Module is responsible to register all [Firebase] modules using [GetIt].
 @module
 abstract class FirebaseInjectableModule {
   @lazySingleton

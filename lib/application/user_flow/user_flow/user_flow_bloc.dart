@@ -19,6 +19,8 @@ import 'package:ringo_media_management/infrastructure/core/injection/injection.d
 import 'user_flow_event.dart';
 import 'user_flow_state.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @LazySingleton()
 class UserFlowBloc extends Bloc<UserFlowEvent, UserFlowState> {
   final IUserFlowFacade _iUserFlowFacade;
@@ -96,7 +98,7 @@ class UserFlowBloc extends Bloc<UserFlowEvent, UserFlowState> {
       userFlowFailureOrSuccessOption: none(),
     ));
 
-    final response = await _iUserFlowFacade.searchForProjectsModel(value: event.valueStr);
+    final response = await _iUserFlowFacade.searchForProjectsModel(searchValue: event.valueStr);
 
     response.fold((f) {
       emit(state.copyWith(
@@ -140,7 +142,7 @@ class UserFlowBloc extends Bloc<UserFlowEvent, UserFlowState> {
       selectedDayForCalenderDayModel: event.date,
       userFlowFailureOrSuccessOption: none(),
     ));
-    calenderDayModelStream = _iUserFlowFacade.streamCalenderDayModelByDate(day: event.date);
+    calenderDayModelStream = _iUserFlowFacade.streamCalenderDayModelByDate(inputDay: event.date);
     if (event.shouldUpdateScrollbar) {
       add(CalenderDaysScrollControllerJumpToDay(
         dayNumber: event.date.day,

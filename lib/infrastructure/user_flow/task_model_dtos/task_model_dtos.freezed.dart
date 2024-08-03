@@ -20,13 +20,24 @@ TaskModelDto _$TaskModelDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TaskModelDto {
+  /// The model unique ID.
   String get id => throw _privateConstructorUsedError;
+
+  /// The task title.
   String get title => throw _privateConstructorUsedError;
+
+  /// Returns whether the task is done or not.
   bool get isDone => throw _privateConstructorUsedError;
+
+  /// The task dead line date.
   @TimestampConverter()
   DateTime get deadLine => throw _privateConstructorUsedError;
+
+  /// The task last update date.
   @TimestampConverter()
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The task creation date.
   @TimestampConverter()
   DateTime get creationDate => throw _privateConstructorUsedError;
 
@@ -179,18 +190,29 @@ class _$taskModelDtoImpl extends _taskModelDto {
   factory _$taskModelDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$taskModelDtoImplFromJson(json);
 
+  /// The model unique ID.
   @override
   final String id;
+
+  /// The task title.
   @override
   final String title;
+
+  /// Returns whether the task is done or not.
   @override
   final bool isDone;
+
+  /// The task dead line date.
   @override
   @TimestampConverter()
   final DateTime deadLine;
+
+  /// The task last update date.
   @override
   @TimestampConverter()
   final DateTime lastUpdate;
+
+  /// The task creation date.
   @override
   @TimestampConverter()
   final DateTime creationDate;
@@ -250,18 +272,30 @@ abstract class _taskModelDto extends TaskModelDto {
       _$taskModelDtoImpl.fromJson;
 
   @override
+
+  /// The model unique ID.
   String get id;
   @override
+
+  /// The task title.
   String get title;
   @override
+
+  /// Returns whether the task is done or not.
   bool get isDone;
   @override
+
+  /// The task dead line date.
   @TimestampConverter()
   DateTime get deadLine;
   @override
+
+  /// The task last update date.
   @TimestampConverter()
   DateTime get lastUpdate;
   @override
+
+  /// The task creation date.
   @TimestampConverter()
   DateTime get creationDate;
   @override

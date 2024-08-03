@@ -13,16 +13,32 @@ abstract class ProjectModelDto implements _$ProjectModelDto {
   const ProjectModelDto._();
 
   const factory ProjectModelDto({
+    /// The model unique ID.
     required String id,
+
+    /// The model title.
     required String title,
+
+    /// The model description.
     required String description,
+
+    /// The model completeness which is number from 0 to 1 as 0 = 0% and 1 = 100%.
     required double projectCompleteness,
+
+    /// Returns whether the project is completed or not.
     required bool isDone,
+
+    /// The project dead line date time.
     @TimestampConverter() required DateTime deadLine,
+
+    /// The project last update date.
     @TimestampConverter() required DateTime lastUpdate,
+
+    /// The project creation date.
     @TimestampConverter() required DateTime creationDate,
   }) = _projectModelDto;
 
+  /// Responsible to generate [ProjectModelDto] from [ProjectModel].
   factory ProjectModelDto.fromDomain(ProjectModel projectModel) {
     return ProjectModelDto(
       id: projectModel.id.getOrCrash(),
@@ -36,6 +52,7 @@ abstract class ProjectModelDto implements _$ProjectModelDto {
     );
   }
 
+  /// Responsible to generate [ProjectModel] from [ProjectModelDto].
   ProjectModel toDomain() {
     return ProjectModel(
       id: UniqueId.fromUniqueString(this.id),
@@ -49,8 +66,10 @@ abstract class ProjectModelDto implements _$ProjectModelDto {
     );
   }
 
+  /// Responsible to generate `Json` format from [ProjectModelDto].
   factory ProjectModelDto.fromJson(Map<String, dynamic> json) => _$ProjectModelDtoFromJson(json);
 
+  /// Responsible to generate [ProjectModelDto] from [DocumentSnapshot].
   factory ProjectModelDto.fromFireStore(DocumentSnapshot doc) {
     return ProjectModelDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }

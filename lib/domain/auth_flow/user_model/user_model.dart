@@ -14,12 +14,12 @@ abstract class UserModel with _$UserModel {
   const factory UserModel({
     /// The user's unique ID.
     ///
-    /// Contains only `String` Or `ValueFailure<String>`.
+    /// Contains `Either<ValueFailure<String> , String>`.
     required UniqueId id,
 
     /// The user's full name.
     ///
-    /// Contains only `String` or `ValueFailure<String>`.
+    /// Contains `Either<ValueFailure<String> , String>`.
     ///
     ///
     /// A [ValueFailure] maybe returned with the following failures:
@@ -30,7 +30,7 @@ abstract class UserModel with _$UserModel {
 
     /// The user's email address.
     ///
-    /// Contains only `String` or `ValueFailure<String>`.
+    /// Contains `Either<ValueFailure<String> , String>`.
     ///
     ///
     /// A [ValueFailure] maybe returned with the following failures:
@@ -41,8 +41,8 @@ abstract class UserModel with _$UserModel {
 
     /// The user's local address where he lives.
     ///
-    /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-    /// This property will have value of `none()` if the user has not update his profile.
+    /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+    /// This property will have value of `none()` as default unless the user updates his profile.
     ///
     ///
     /// A [ValueFailure] maybe returned with the following failures:
@@ -54,7 +54,8 @@ abstract class UserModel with _$UserModel {
 
     /// The user's phone number.
     ///
-    /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
+    /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+    /// This property will have value of `none()` as default unless the user updates his profile.
     ///
     ///
     /// A [ValueFailure] maybe returned with the following failures:
@@ -65,8 +66,8 @@ abstract class UserModel with _$UserModel {
 
     /// The user's website url.
     ///
-    /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-    /// This property will have value of `none()` if the user has not update his profile.
+    /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+    /// This property will have value of `none()` as default unless the user updates his profile.
     ///
     ///
     /// A [ValueFailure] maybe returned with the following failures:
@@ -75,10 +76,10 @@ abstract class UserModel with _$UserModel {
     /// [ValueFailure.invalidUrl].
     required OptionWebsite website,
 
-    /// The user's personal photo
+    /// The user's personal photo.
     ///
-    /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`
-    /// This property will have value of `none()` if the user has not update his profile.
+    /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+    /// This property will have value of `none()` as default unless the user updates his profile.
     ///
     ///
     /// A [ValueFailure] maybe returned with the following failures:
@@ -87,10 +88,10 @@ abstract class UserModel with _$UserModel {
     /// [ValueFailure.invalidUrl].
     required Photo photo,
 
-    /// The user's notification token
+    /// The user's notification token.
     ///
-    /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-    /// This property will have value of `none()` if the user has not update his profile.
+    /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+    /// This property will have value of `none()` as default unless the user updates his profile.
     ///
     /// A [ValueFailure] maybe returned with the following failures:
     /// [ValueFailure.multiline].
@@ -108,14 +109,14 @@ abstract class UserModel with _$UserModel {
     /// By default this property will be 'false'.
     @Default(false) bool isBlocked,
 
-    /// The user's account last update date
+    /// The user's account last update date.
     ///
-    /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+    /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
     required DuoDate lastUpdate,
 
-    /// The user's account creation date
+    /// The user's account creation date.
     ///
-    /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+    /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
     required DuoDate creationDate,
   }) = _UserModel;
 
@@ -140,18 +141,17 @@ abstract class UserModel with _$UserModel {
         );
   }
 
-  /// Returns the user first name
+  /// Returns the user first name.
   ///
-  /// By splitting [name] property by `" "` and getting the first element of the array
+  /// By splitting [name] property by `" "` and getting the first element of the array.
   String get firstName {
     return name.getOrCrash().split(" ")[0];
   }
 
-  /// Return the user last name
+  /// Return the user last name.
   ///
-  /// By splitting [name] property by `" "` and getting the last element of the array
-  ///
-  /// If [name] has only one word, the last name will be empty string `''`
+  /// By splitting [name] property by `" "` and getting the last element of the array.
+  /// If [name] has only one word, the last name will be empty string `''`.
   String get lastName {
     String lastNameHolder = '';
     try {

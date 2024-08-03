@@ -20,14 +20,28 @@ ScheduleModelDto _$ScheduleModelDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScheduleModelDto {
+  /// The model unique ID.
   String get id => throw _privateConstructorUsedError;
+
+  /// The schedule title.
   String get title => throw _privateConstructorUsedError;
+
+  /// The schedule url which may contains google meeting or zoom meeting or external link.
   String? get url => throw _privateConstructorUsedError;
+
+  /// The schedule card color.
   int get color => throw _privateConstructorUsedError;
+
+  /// The schedule starting date, for now iam considering the meeting is 1 hour long
+  /// as for this project but later it could be updated in the logic.
   @TimestampConverter()
   DateTime get startDate => throw _privateConstructorUsedError;
+
+  /// The schedule last update date.
   @TimestampConverter()
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The schedule creation date.
   @TimestampConverter()
   DateTime get creationDate => throw _privateConstructorUsedError;
 
@@ -193,20 +207,34 @@ class _$scheduleModelDtoImpl extends _scheduleModelDto {
   factory _$scheduleModelDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$scheduleModelDtoImplFromJson(json);
 
+  /// The model unique ID.
   @override
   final String id;
+
+  /// The schedule title.
   @override
   final String title;
+
+  /// The schedule url which may contains google meeting or zoom meeting or external link.
   @override
   final String? url;
+
+  /// The schedule card color.
   @override
   final int color;
+
+  /// The schedule starting date, for now iam considering the meeting is 1 hour long
+  /// as for this project but later it could be updated in the logic.
   @override
   @TimestampConverter()
   final DateTime startDate;
+
+  /// The schedule last update date.
   @override
   @TimestampConverter()
   final DateTime lastUpdate;
+
+  /// The schedule creation date.
   @override
   @TimestampConverter()
   final DateTime creationDate;
@@ -269,20 +297,35 @@ abstract class _scheduleModelDto extends ScheduleModelDto {
       _$scheduleModelDtoImpl.fromJson;
 
   @override
+
+  /// The model unique ID.
   String get id;
   @override
+
+  /// The schedule title.
   String get title;
   @override
+
+  /// The schedule url which may contains google meeting or zoom meeting or external link.
   String? get url;
   @override
+
+  /// The schedule card color.
   int get color;
   @override
+
+  /// The schedule starting date, for now iam considering the meeting is 1 hour long
+  /// as for this project but later it could be updated in the logic.
   @TimestampConverter()
   DateTime get startDate;
   @override
+
+  /// The schedule last update date.
   @TimestampConverter()
   DateTime get lastUpdate;
   @override
+
+  /// The schedule creation date.
   @TimestampConverter()
   DateTime get creationDate;
   @override

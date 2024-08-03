@@ -13,14 +13,26 @@ abstract class TaskModelDto implements _$TaskModelDto {
   const TaskModelDto._();
 
   const factory TaskModelDto({
+    /// The model unique ID.
     required String id,
+
+    /// The task title.
     required String title,
+
+    /// Returns whether the task is done or not.
     required bool isDone,
+
+    /// The task dead line date.
     @TimestampConverter() required DateTime deadLine,
+
+    /// The task last update date.
     @TimestampConverter() required DateTime lastUpdate,
+
+    /// The task creation date.
     @TimestampConverter() required DateTime creationDate,
   }) = _taskModelDto;
 
+  /// Responsible to generate [TaskModelDto] from [TaskModel].
   factory TaskModelDto.fromDomain(TaskModel taskModel) {
     return TaskModelDto(
       id: taskModel.id.getOrCrash(),
@@ -32,6 +44,7 @@ abstract class TaskModelDto implements _$TaskModelDto {
     );
   }
 
+  /// Responsible to generate [TaskModel] from [TaskModelDto].
   TaskModel toDomain() {
     return TaskModel(
       id: UniqueId.fromUniqueString(this.id),
@@ -43,8 +56,10 @@ abstract class TaskModelDto implements _$TaskModelDto {
     );
   }
 
+  /// Responsible to generate `Json` format from [TaskModelDto].
   factory TaskModelDto.fromJson(Map<String, dynamic> json) => _$TaskModelDtoFromJson(json);
 
+  /// Responsible to generate [TaskModelDto] from [DocumentSnapshot].
   factory TaskModelDto.fromFireStore(DocumentSnapshot doc) {
     return TaskModelDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }

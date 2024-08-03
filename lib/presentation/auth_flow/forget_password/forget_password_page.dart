@@ -6,6 +6,8 @@ import 'package:ringo_media_management/presentation/auth_flow/forget_password/co
 import 'package:ringo_media_management/presentation/core/extensions/theme_mode_extensions.dart';
 import 'package:ringo_media_management/presentation/core/themes/app_themes.dart';
 
+/// This Page and it's Components will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @RoutePage()
 class ForgetPasswordPage extends StatelessWidget {
   const ForgetPasswordPage({super.key, required this.bloc});

@@ -16,11 +16,40 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TaskModel {
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id => throw _privateConstructorUsedError;
+
+  /// The task title.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   TaskTitle get title => throw _privateConstructorUsedError;
+
+  /// Returns whether the task is done or not.
+  ///
+  /// By default this property will be 'false'.
   bool get isDone => throw _privateConstructorUsedError;
+
+  /// The task dead line date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get deadLine => throw _privateConstructorUsedError;
+
+  /// The task last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The task creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -167,16 +196,45 @@ class _$TaskModelImpl extends _TaskModel {
       required this.creationDate})
       : super._();
 
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   @override
   final UniqueId id;
+
+  /// The task title.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   @override
   final TaskTitle title;
+
+  /// Returns whether the task is done or not.
+  ///
+  /// By default this property will be 'false'.
   @override
   final bool isDone;
+
+  /// The task dead line date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate deadLine;
+
+  /// The task last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate lastUpdate;
+
+  /// The task creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate creationDate;
 
@@ -223,16 +281,46 @@ abstract class _TaskModel extends TaskModel {
   const _TaskModel._() : super._();
 
   @override
+
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id;
   @override
+
+  /// The task title.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   TaskTitle get title;
   @override
+
+  /// Returns whether the task is done or not.
+  ///
+  /// By default this property will be 'false'.
   bool get isDone;
   @override
+
+  /// The task dead line date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get deadLine;
   @override
+
+  /// The task last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate;
   @override
+
+  /// The task creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate;
   @override
   @JsonKey(ignore: true)

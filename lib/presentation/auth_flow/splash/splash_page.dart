@@ -12,6 +12,8 @@ import 'package:ringo_media_management/presentation/auth_flow/splash/components/
 import 'package:ringo_media_management/presentation/components/snackbar/snackbar.dart';
 import 'package:ringo_media_management/presentation/core/routes/router.dart';
 
+/// This Page and it's Components will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @RoutePage()
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

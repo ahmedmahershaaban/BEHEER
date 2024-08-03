@@ -13,12 +13,20 @@ abstract class ProjectsStatisticsModelDto implements _$ProjectsStatisticsModelDt
   const ProjectsStatisticsModelDto._();
 
   const factory ProjectsStatisticsModelDto({
+    /// The model unique ID.
     required String id,
+
+    /// All projects statistics should be added here for analysis purposes and easy display.
     required Map<dynamic, Map<dynamic, dynamic>>? projectsStatistics,
+
+    /// The model last update date.
     @TimestampConverter() required DateTime lastUpdate,
+
+    /// The model creation date.
     @TimestampConverter() required DateTime creationDate,
   }) = _projectsStatisticsModelDto;
 
+  /// Responsible to generate [ProjectsStatisticsModelDto] from [ProjectsStatisticsModel].
   factory ProjectsStatisticsModelDto.fromDomain(ProjectsStatisticsModel projectsStatisticsModel) {
     return ProjectsStatisticsModelDto(
       id: projectsStatisticsModel.id.getOrCrash(),
@@ -28,6 +36,7 @@ abstract class ProjectsStatisticsModelDto implements _$ProjectsStatisticsModelDt
     );
   }
 
+  /// Responsible to generate [ProjectsStatisticsModel] from [ProjectsStatisticsModelDto].
   ProjectsStatisticsModel toDomain() {
     return ProjectsStatisticsModel(
       id: UniqueId.fromUniqueString(this.id),
@@ -37,8 +46,10 @@ abstract class ProjectsStatisticsModelDto implements _$ProjectsStatisticsModelDt
     );
   }
 
+  /// Responsible to generate `Json` format from [ProjectsStatisticsModelDto].
   factory ProjectsStatisticsModelDto.fromJson(Map<String, dynamic> json) => _$ProjectsStatisticsModelDtoFromJson(json);
 
+  /// Responsible to generate [ProjectsStatisticsModelDto] from [DocumentSnapshot].
   factory ProjectsStatisticsModelDto.fromFireStore(DocumentSnapshot doc) {
     return ProjectsStatisticsModelDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }

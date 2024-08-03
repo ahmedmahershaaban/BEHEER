@@ -16,12 +16,57 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ScheduleModel {
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id => throw _privateConstructorUsedError;
+
+  /// The schedule title.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   ScheduleTitle get title => throw _privateConstructorUsedError;
+
+  /// The schedule url which may contains google meeting or zoom meeting or external link.
+  ///
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
+  /// [ValueFailure.invalidUrl].
+  /// [ValueFailure.invalidOptionString].
   OptionWebsite get url => throw _privateConstructorUsedError;
+
+  /// The schedule card color.
+  ///
+  /// Contains `Either<ValueFailure<Color> , Color>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.invalidColorLength].
   ValidatedColor get color => throw _privateConstructorUsedError;
+
+  /// The schedule starting date, for now iam considering the meeting is 1 hour long
+  /// as for this project but later it could be updated in the logic.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get startDate => throw _privateConstructorUsedError;
+
+  /// The schedule last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The schedule creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -182,18 +227,63 @@ class _$ScheduleModelImpl extends _ScheduleModel {
       required this.creationDate})
       : super._();
 
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   @override
   final UniqueId id;
+
+  /// The schedule title.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   @override
   final ScheduleTitle title;
+
+  /// The schedule url which may contains google meeting or zoom meeting or external link.
+  ///
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
+  /// [ValueFailure.invalidUrl].
+  /// [ValueFailure.invalidOptionString].
   @override
   final OptionWebsite url;
+
+  /// The schedule card color.
+  ///
+  /// Contains `Either<ValueFailure<Color> , Color>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.invalidColorLength].
   @override
   final ValidatedColor color;
+
+  /// The schedule starting date, for now iam considering the meeting is 1 hour long
+  /// as for this project but later it could be updated in the logic.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate startDate;
+
+  /// The schedule last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate lastUpdate;
+
+  /// The schedule creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate creationDate;
 
@@ -242,18 +332,64 @@ abstract class _ScheduleModel extends ScheduleModel {
   const _ScheduleModel._() : super._();
 
   @override
+
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id;
   @override
+
+  /// The schedule title.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
   ScheduleTitle get title;
   @override
+
+  /// The schedule url which may contains google meeting or zoom meeting or external link.
+  ///
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.empty].
+  /// [ValueFailure.multiline].
+  /// [ValueFailure.invalidUrl].
+  /// [ValueFailure.invalidOptionString].
   OptionWebsite get url;
   @override
+
+  /// The schedule card color.
+  ///
+  /// Contains `Either<ValueFailure<Color> , Color>`.
+  ///
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.invalidColorLength].
   ValidatedColor get color;
   @override
+
+  /// The schedule starting date, for now iam considering the meeting is 1 hour long
+  /// as for this project but later it could be updated in the logic.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get startDate;
   @override
+
+  /// The schedule last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate;
   @override
+
+  /// The schedule creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate;
   @override
   @JsonKey(ignore: true)

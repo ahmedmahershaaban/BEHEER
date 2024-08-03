@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ringo_media_management/application/core/theme/theme_bloc.dart';
 
+/// Extension on [BuildContext] to help using it and make a lot of shortcuts that would
+/// maintain clean and reusable code.
 extension DarkMode on BuildContext {
   /// Check dark mode
   bool get isDarkMode {

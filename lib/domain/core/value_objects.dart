@@ -7,6 +7,7 @@ import 'package:ringo_media_management/domain/core/value_transformers.dart';
 import 'package:ringo_media_management/domain/core/value_validators.dart';
 import 'package:uuid/uuid.dart';
 
+/// The main interface for all [ValueObject]s that will be build later.
 @immutable
 abstract class ValueObject<T> {
   const ValueObject();
@@ -235,7 +236,7 @@ class DuoDate extends ValueObject<DateTime> {
 /// [ValueObject] that represent the `Option<String>` in the valid form.
 ///
 /// Uses [validateStringNotEmpty] and [validateSingleLine] and [validateUrl]
-/// to valid the input type `double`.
+/// to valid the input type `Option<String>`.
 ///
 /// A [ValueFailure] maybe returned with the following failures:
 /// [ValueFailure.empty].

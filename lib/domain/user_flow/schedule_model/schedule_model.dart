@@ -11,15 +11,63 @@ abstract class ScheduleModel implements _$ScheduleModel {
   const ScheduleModel._();
 
   const factory ScheduleModel({
+    /// The model unique ID.
+    ///
+    /// Contains `Either<ValueFailure<String> , String>`.
     required UniqueId id,
+
+    /// The schedule title.
+    ///
+    /// Contains `Either<ValueFailure<String> , String>`.
+    ///
+    ///
+    /// A [ValueFailure] maybe returned with the following failures:
+    /// [ValueFailure.nullValue].
+    /// [ValueFailure.empty].
+    /// [ValueFailure.multiline].
     required ScheduleTitle title,
+
+    /// The schedule url which may contains google meeting or zoom meeting or external link.
+    ///
+    /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+    ///
+    ///
+    /// A [ValueFailure] maybe returned with the following failures:
+    /// [ValueFailure.empty].
+    /// [ValueFailure.multiline].
+    /// [ValueFailure.invalidUrl].
+    /// [ValueFailure.invalidOptionString].
     required OptionWebsite url,
+
+    /// The schedule card color.
+    ///
+    /// Contains `Either<ValueFailure<Color> , Color>`.
+    ///
+    ///
+    /// A [ValueFailure] maybe returned with the following failures:
+    /// [ValueFailure.invalidColorLength].
     required ValidatedColor color,
+
+    /// The schedule starting date, for now iam considering the meeting is 1 hour long
+    /// as for this project but later it could be updated in the logic.
+    ///
+    /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
     required DuoDate startDate,
+
+    /// The schedule last update date.
+    ///
+    /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
     required DuoDate lastUpdate,
+
+    /// The schedule creation date.
+    ///
+    /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
     required DuoDate creationDate,
   }) = _ScheduleModel;
 
+  /// Return [ScheduleModel].
+  ///
+  /// Easy creation for [ScheduleModel] with only passing [title] and [url] and [color] and [startDate].
   factory ScheduleModel.create({
     required ScheduleTitle title,
     required OptionWebsite url,
@@ -36,6 +84,9 @@ abstract class ScheduleModel implements _$ScheduleModel {
         creationDate: DuoDate.now(),
       );
 
+  /// Validate the data inside the [ScheduleModel].
+  ///
+  /// return `none()` for valid data, and return `ValueFailure<T>` if the data is not valid!
   Option<ValueFailure<dynamic>> get failureOption {
     return title.failureOrUnit
         .andThen(startDate.failureOrUnit)

@@ -16,10 +16,34 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProjectsStatisticsModel {
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id => throw _privateConstructorUsedError;
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
+  ///
+  /// Contains `Either<ValueFailure<Map<UniqueId, Map<String, ValidatedDouble>>>, Map<UniqueId, Map<String, ValidatedDouble>>>`.
+  ///
+  /// Which means the valid data will be 'Map<String, Map<String, ValidatedDouble>>`.
+  /// In the first map the `key` will represent the `UniqueId` for the project
+  /// The `value` will be a `map<String,ValidatedDouble>` which will contains specific keys that represent
+  /// statistics for the project.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.unexpectedConversionError].
   AllProjectsStatistics get projectsStatistics =>
       throw _privateConstructorUsedError;
+
+  /// The model last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The model creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -145,12 +169,36 @@ class _$ProjectsStatisticsModelImpl extends _ProjectsStatisticsModel {
       required this.creationDate})
       : super._();
 
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   @override
   final UniqueId id;
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
+  ///
+  /// Contains `Either<ValueFailure<Map<UniqueId, Map<String, ValidatedDouble>>>, Map<UniqueId, Map<String, ValidatedDouble>>>`.
+  ///
+  /// Which means the valid data will be 'Map<String, Map<String, ValidatedDouble>>`.
+  /// In the first map the `key` will represent the `UniqueId` for the project
+  /// The `value` will be a `map<String,ValidatedDouble>` which will contains specific keys that represent
+  /// statistics for the project.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.unexpectedConversionError].
   @override
   final AllProjectsStatistics projectsStatistics;
+
+  /// The model last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate lastUpdate;
+
+  /// The model creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate creationDate;
 
@@ -194,12 +242,37 @@ abstract class _ProjectsStatisticsModel extends ProjectsStatisticsModel {
   const _ProjectsStatisticsModel._() : super._();
 
   @override
+
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id;
   @override
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
+  ///
+  /// Contains `Either<ValueFailure<Map<UniqueId, Map<String, ValidatedDouble>>>, Map<UniqueId, Map<String, ValidatedDouble>>>`.
+  ///
+  /// Which means the valid data will be 'Map<String, Map<String, ValidatedDouble>>`.
+  /// In the first map the `key` will represent the `UniqueId` for the project
+  /// The `value` will be a `map<String,ValidatedDouble>` which will contains specific keys that represent
+  /// statistics for the project.
+  ///
+  /// A [ValueFailure] maybe returned with the following failures:
+  /// [ValueFailure.nullValue].
+  /// [ValueFailure.unexpectedConversionError].
   AllProjectsStatistics get projectsStatistics;
   @override
+
+  /// The model last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate;
   @override
+
+  /// The model creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate;
   @override
   @JsonKey(ignore: true)

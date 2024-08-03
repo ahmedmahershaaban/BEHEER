@@ -18,12 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserModel {
   /// The user's unique ID.
   ///
-  /// Contains only `String` Or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id => throw _privateConstructorUsedError;
 
   /// The user's full name.
   ///
-  /// Contains only `String` or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -34,7 +34,7 @@ mixin _$UserModel {
 
   /// The user's email address.
   ///
-  /// Contains only `String` or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -45,8 +45,8 @@ mixin _$UserModel {
 
   /// The user's local address where he lives.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -58,7 +58,8 @@ mixin _$UserModel {
 
   /// The user's phone number.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -69,8 +70,8 @@ mixin _$UserModel {
 
   /// The user's website url.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -79,10 +80,10 @@ mixin _$UserModel {
   /// [ValueFailure.invalidUrl].
   OptionWebsite get website => throw _privateConstructorUsedError;
 
-  /// The user's personal photo
+  /// The user's personal photo.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -91,10 +92,10 @@ mixin _$UserModel {
   /// [ValueFailure.invalidUrl].
   Photo get photo => throw _privateConstructorUsedError;
 
-  /// The user's notification token
+  /// The user's notification token.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   /// A [ValueFailure] maybe returned with the following failures:
   /// [ValueFailure.multiline].
@@ -112,14 +113,14 @@ mixin _$UserModel {
   /// By default this property will be 'false'.
   bool get isBlocked => throw _privateConstructorUsedError;
 
-  /// The user's account last update date
+  /// The user's account last update date.
   ///
-  /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate => throw _privateConstructorUsedError;
 
-  /// The user's account creation date
+  /// The user's account creation date.
   ///
-  /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -346,13 +347,13 @@ class _$UserModelImpl extends _UserModel {
 
   /// The user's unique ID.
   ///
-  /// Contains only `String` Or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   @override
   final UniqueId id;
 
   /// The user's full name.
   ///
-  /// Contains only `String` or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -364,7 +365,7 @@ class _$UserModelImpl extends _UserModel {
 
   /// The user's email address.
   ///
-  /// Contains only `String` or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -376,8 +377,8 @@ class _$UserModelImpl extends _UserModel {
 
   /// The user's local address where he lives.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -390,7 +391,8 @@ class _$UserModelImpl extends _UserModel {
 
   /// The user's phone number.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -402,8 +404,8 @@ class _$UserModelImpl extends _UserModel {
 
   /// The user's website url.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -413,10 +415,10 @@ class _$UserModelImpl extends _UserModel {
   @override
   final OptionWebsite website;
 
-  /// The user's personal photo
+  /// The user's personal photo.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -426,10 +428,10 @@ class _$UserModelImpl extends _UserModel {
   @override
   final Photo photo;
 
-  /// The user's notification token
+  /// The user's notification token.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   /// A [ValueFailure] maybe returned with the following failures:
   /// [ValueFailure.multiline].
@@ -452,15 +454,15 @@ class _$UserModelImpl extends _UserModel {
   @JsonKey()
   final bool isBlocked;
 
-  /// The user's account last update date
+  /// The user's account last update date.
   ///
-  /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate lastUpdate;
 
-  /// The user's account creation date
+  /// The user's account creation date.
   ///
-  /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate creationDate;
 
@@ -537,13 +539,13 @@ abstract class _UserModel extends UserModel {
 
   /// The user's unique ID.
   ///
-  /// Contains only `String` Or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id;
   @override
 
   /// The user's full name.
   ///
-  /// Contains only `String` or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -555,7 +557,7 @@ abstract class _UserModel extends UserModel {
 
   /// The user's email address.
   ///
-  /// Contains only `String` or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<String> , String>`.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -567,8 +569,8 @@ abstract class _UserModel extends UserModel {
 
   /// The user's local address where he lives.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -581,7 +583,8 @@ abstract class _UserModel extends UserModel {
 
   /// The user's phone number.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -593,8 +596,8 @@ abstract class _UserModel extends UserModel {
 
   /// The user's website url.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -604,10 +607,10 @@ abstract class _UserModel extends UserModel {
   OptionWebsite get website;
   @override
 
-  /// The user's personal photo
+  /// The user's personal photo.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   ///
   /// A [ValueFailure] maybe returned with the following failures:
@@ -617,10 +620,10 @@ abstract class _UserModel extends UserModel {
   Photo get photo;
   @override
 
-  /// The user's notification token
+  /// The user's notification token.
   ///
-  /// Contains `Option<String>` which means `String?`  or `ValueFailure<String>`.
-  /// This property will have value of `none()` if the user has not update his profile.
+  /// Contains `Either<ValueFailure<Option<String>> , Option<String>>`.
+  /// This property will have value of `none()` as default unless the user updates his profile.
   ///
   /// A [ValueFailure] maybe returned with the following failures:
   /// [ValueFailure.multiline].
@@ -641,15 +644,15 @@ abstract class _UserModel extends UserModel {
   bool get isBlocked;
   @override
 
-  /// The user's account last update date
+  /// The user's account last update date.
   ///
-  /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate;
   @override
 
-  /// The user's account creation date
+  /// The user's account creation date.
   ///
-  /// Contains only `DateTime` or `ValueFailure<DateTime>`.
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate;
   @override
   @JsonKey(ignore: true)

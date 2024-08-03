@@ -16,15 +16,30 @@ abstract class ScheduleModelDto implements _$ScheduleModelDto {
   const ScheduleModelDto._();
 
   const factory ScheduleModelDto({
+    /// The model unique ID.
     required String id,
+
+    /// The schedule title.
     required String title,
+
+    /// The schedule url which may contains google meeting or zoom meeting or external link.
     required String? url,
+
+    /// The schedule card color.
     required int color,
+
+    /// The schedule starting date, for now iam considering the meeting is 1 hour long
+    /// as for this project but later it could be updated in the logic.
     @TimestampConverter() required DateTime startDate,
+
+    /// The schedule last update date.
     @TimestampConverter() required DateTime lastUpdate,
+
+    /// The schedule creation date.
     @TimestampConverter() required DateTime creationDate,
   }) = _scheduleModelDto;
 
+  /// Responsible to generate [ScheduleModelDto] from [ScheduleModel].
   factory ScheduleModelDto.fromDomain(ScheduleModel scheduleModel) {
     return ScheduleModelDto(
       id: scheduleModel.id.getOrCrash(),
@@ -37,6 +52,7 @@ abstract class ScheduleModelDto implements _$ScheduleModelDto {
     );
   }
 
+  /// Responsible to generate [ScheduleModel] from [ScheduleModelDto].
   ScheduleModel toDomain() {
     return ScheduleModel(
       id: UniqueId.fromUniqueString(this.id),
@@ -49,8 +65,10 @@ abstract class ScheduleModelDto implements _$ScheduleModelDto {
     );
   }
 
+  /// Responsible to generate `Json` format from [ScheduleModelDto].
   factory ScheduleModelDto.fromJson(Map<String, dynamic> json) => _$ScheduleModelDtoFromJson(json);
 
+  /// Responsible to generate [ScheduleModelDto] from [DocumentSnapshot].
   factory ScheduleModelDto.fromFireStore(DocumentSnapshot doc) {
     return ScheduleModelDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }

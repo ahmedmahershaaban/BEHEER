@@ -22,6 +22,10 @@ import 'package:ringo_media_management/infrastructure/user_flow/projects_statist
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// The implementations of the interface [IAuthFacade].
+///
+/// This implementation will have all the needed logic for auth flow to deal
+/// with APIs and third party libraries.
 @LazySingleton(as: IAuthFacade)
 class AuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
@@ -40,6 +44,13 @@ class AuthFacade implements IAuthFacade {
     this._googleSignIn,
   );
 
+  /// Return [CalenderDayModel] if found in the db else return `none()`.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- search for the [UserModel] record.
+  /// 4- if record exists return `right(UserModel())`.
+  /// 5- if record is not exists or any [Error] happened return `none()`.
   @override
   Future<Option<UserModel>> getSignedInUserData() async {
     try {
@@ -64,17 +75,40 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// Return [UniqueId] if found cached in the local memory else return `none()`.
   @override
   Option<UniqueId> getSignedInUserId() => optionOf(
         _firebaseAuth.currentUser?.uid == null ? null : UniqueId.fromUniqueString(_firebaseAuth.currentUser!.uid),
       );
 
+  /// Return `Stream` for only one [UserModel] which is the signed in user from db for real time updates.
+  ///
+  /// Note:
+  /// 1- If there is no internet connection `onErrorReturnWith` will return `serverError`!
+  ///
+  /// Steps:
+  /// 1- get the user [UniqueId] from the cached memory.
+  /// 4- search for the [UserModel] by the [UniqueId] using `Stream`.
+  /// 5- if the [UserModel] is not exists return `left( AuthFailure.userNotFound())` in `Stream` format.
+  /// 6- if [UserModel] is found, then use [UserModelDto.fromFireStore] to convert the firebase json data to dto.
+  /// 7- convert [UserModelDto] to [UserModel] by [UserModelDto.toDomain].
+  /// 8- return `right(UserModel())` in `Stream` format.
+  ///
+  ///
+  ///
+  /// A [AuthFailure] maybe returned with the following failures:
+  /// [AuthFailure.userNotFound].
+  /// [AuthFailure.insufficientPermission].
+  /// [AuthFailure.serverError].
   @override
   Stream<Either<AuthFailure, UserModel>> watchUserDate() async* {
     final userDocument = _firebaseFirestore.userModelDocument();
     yield* userDocument.snapshots().map(
-      (doc) {
-        return right<AuthFailure, UserModel>(UserModelDto.fromFireStore(doc).toDomain());
+      (docSnap) {
+        if (!docSnap.exists) {
+          return left<AuthFailure, UserModel>(const AuthFailure.userNotFound());
+        }
+        return right<AuthFailure, UserModel>(UserModelDto.fromFireStore(docSnap).toDomain());
       },
     ).onErrorReturnWith((e, _) {
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
@@ -87,6 +121,23 @@ class AuthFacade implements IAuthFacade {
     });
   }
 
+  /// Register new user by email and password.
+  ///
+  /// Steps:
+  /// 1- validate the form data first.
+  /// 2- check internet connections.
+  /// 3- call [_firebaseAuth.createUserWithEmailAndPassword] to create a new user in the auth db.
+  /// 4- create a [UserModel] from the form data and returned data from the auth module.
+  /// 5- add the [UserModel] record to the db under `userCollection`.
+  /// 6- create and add to db empty [ProjectsStatisticsModel] by calling [createProjectsStatisticsModelForNewUsers].
+  /// 7- return `right(Unit())`.
+  ///
+  ///
+  /// A [AuthFailure] maybe returned with the following failures:
+  /// [AuthFailure.noInternetConnection].
+  /// [AuthFailure.emailAlreadyInUse].
+  /// [AuthFailure.invalidEmail].
+  /// [AuthFailure.serverError].
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required Name name,
@@ -144,15 +195,30 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// Reset password by sending link to the email.
+  ///
+  /// Steps:
+  /// 1- validate the form data first.
+  /// 2- check internet connections.
+  /// 3- call [_firebaseAuth.sendPasswordResetEmail] to send email with reset link.
+  /// 4- return `right(Unit())`.
+  ///
+  ///
+  /// A [AuthFailure] maybe returned with the following failures:
+  /// [AuthFailure.noInternetConnection].
+  /// [AuthFailure.invalidEmail].
+  /// [AuthFailure.userNotFound].
+  /// [AuthFailure.serverError].
   @override
   Future<Either<AuthFailure, Unit>> resetPasswordUsingEmail({required EmailAddress emailAddress}) async {
+    final emailAddressStr = emailAddress.getOrCrash();
+
     try {
       bool result = await _internetConnection.hasInternetAccess;
       if (!result) {
         return left(const AuthFailure.noInternetConnection());
       }
 
-      final emailAddressStr = emailAddress.getOrCrash();
       await _firebaseAuth.sendPasswordResetEmail(email: emailAddressStr);
       return right(unit);
     } on FirebaseAuthException catch (e) {
@@ -170,6 +236,20 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// Login user by entering email and password.
+  ///
+  /// Steps:
+  /// 1- validate the form data first.
+  /// 2- check internet connections.
+  /// 3- call [_firebaseAuth.signInWithEmailAndPassword] to login into firebase.
+  /// 4- update [UserModel.notification] by calling [updateUserNotificationToken].
+  /// 5- return `right(Unit())`.
+  ///
+  ///
+  /// A [AuthFailure] maybe returned with the following failures:
+  /// [AuthFailure.noInternetConnection].
+  /// [AuthFailure.invalidEmailAndPasswordCombination].
+  /// [AuthFailure.serverError].
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
@@ -198,6 +278,23 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// Sign in existing user Or Create a new user if there is no user registered by `Google SignIn`.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- call [_googleSignIn.signIn] to get the user credentials from google.
+  /// 3- register the credentials from google and register it with [FirebaseAuth].
+  /// 4- get the [UserModel] from db.
+  /// 5- if [UserModel] exists, update [UserModel.NotificationToken].
+  /// 6- if [UserModel] not exists, create a [UserModel] then add it to the db,
+  /// also create empty [ProjectsStatisticsModel] and add it to db.
+  /// 7- return `right(Unit())`.
+  ///
+  ///
+  /// A [AuthFailure] maybe returned with the following failures:
+  /// [AuthFailure.noInternetConnection].
+  /// [AuthFailure.cancelledByUser].
+  /// [AuthFailure.serverError].
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
     try {
@@ -267,7 +364,7 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
-  /// These feature could be implemented later
+  /// This feature will be implemented later.
   @override
   Future<Either<AuthFailure, Unit>> signInWithFacebook() async {
     bool result = await _internetConnection.hasInternetAccess;
@@ -278,7 +375,7 @@ class AuthFacade implements IAuthFacade {
     return left(const AuthFailure.notImplementedFeature());
   }
 
-  /// These feature could be implemented later
+  /// This feature will be implemented later.
   @override
   Future<Either<AuthFailure, Unit>> signInWithApple() async {
     bool result = await _internetConnection.hasInternetAccess;
@@ -289,7 +386,7 @@ class AuthFacade implements IAuthFacade {
     return left(const AuthFailure.notImplementedFeature());
   }
 
-  /// These feature could be implemented later
+  /// This feature will be implemented later.
   @override
   Future<Either<AuthFailure, Unit>> signInWithTwitter() async {
     bool result = await _internetConnection.hasInternetAccess;
@@ -300,6 +397,20 @@ class AuthFacade implements IAuthFacade {
     return left(const AuthFailure.notImplementedFeature());
   }
 
+  /// Update user notification token in the db.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- get [UserModel.notificationToken] by calling [_firebaseMessaging.getToken].
+  /// 3- register the credentials from google and register it with [FirebaseAuth].
+  /// 4- update [UserModel] in db.
+  /// 7- return `right(Unit())`.
+  ///
+  ///
+  /// A [AuthFailure] maybe returned with the following failures:
+  /// [AuthFailure.noInternetConnection].
+  /// [AuthFailure.insufficientPermission].
+  /// [AuthFailure.serverError].
   @override
   Future<Either<AuthFailure, Unit>> updateUserNotificationToken() async {
     try {
@@ -328,20 +439,18 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// Sign Out the user from all registered authentication platform along with resetting the default `Bloc`s
+  /// and dependency injection third pastries that needs to be reset to remove old signed in user data.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- get [UserModel.notificationToken] by calling [_firebaseMessaging.getToken].
+  /// 3- register the credentials from google and register it with [FirebaseAuth].
+  /// 4- update [UserModel] in db.
+  /// 7- return `right(Unit())`.
   @override
   Future<void> signOutFromAllExceptFirestore() async {
     try {
-      /// Could use Firebase Functions if needed for example like this
-      /// depending on the logic of the app
-      // final userModelIdOption =   getSignedInUserId();
-      // final userModelId = userModelIdOption.getOrElse(() => throw const Unauthenticated());
-      //   final HttpsCallable callable = _firebaseFunctions.httpsCallable('removeNotification');
-      //   await callable.call(
-      //     <String, dynamic>{
-      //       'userId':userModelId,
-      //     },
-      //   );
-
       if (!kIsWeb) {
         try {
           await _googleSignIn.signOut();
@@ -349,7 +458,6 @@ class AuthFacade implements IAuthFacade {
           debugPrint("Error In [signOutFromAllExceptFirestore] By [SignOutFromGoogle]: $e");
         }
       }
-
       // resetting the bloc registered and any data
       getIt.resetLazySingleton<UserFlowBloc>();
     } on FirebaseAuthException catch (e) {
@@ -359,10 +467,13 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
-  /// This is must for Apple Store deploy
+  /// Delete user account permanently and can not store the user data again.
+  ///
+  /// Note: This is must for Apple Store deploy.
+  ///
   /// will not use it now, but for production code this is must !
-  /// Will use Firebase Functions as there should be a lot to handle
-  /// and we want to sign out the user from the app
+  /// Will use Firebase Functions as there should be a lot to handle.
+  /// and we want to sign out the user from the app.
   @override
   Future<void> deleteAccountPermanently() async {
     final userDataOption = await getSignedInUserData();
@@ -386,6 +497,7 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// Sign Out user from [_firebaseAuth]
   @override
   Future<void> signOutFromFirebaseOnly() async {
     try {
@@ -397,12 +509,24 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
+  /// The main sign our functionality which will be responsible to call and handle every thing.
+  ///
+  /// steps:
+  /// 1- calls and await [signOutFromAllExceptFirestore].
+  /// 2- calls and await [signOutFromFirebaseOnly].
   @override
   Future<void> signOut() async {
     await signOutFromAllExceptFirestore();
     await signOutFromFirebaseOnly();
   }
 
+  /// This feature enables users to send message to support when they face `ErrorCard` in the `Presentation Layer`
+  /// as `UI Components`.
+  ///
+  /// steps:
+  /// 1- prepare the `encodeQueryParameters`.
+  /// 2- prepare the [Uri].
+  /// 3- call [launchUrl].
   @override
   Future<void> sendEmailForSupport({required String message}) async {
     String? encodeQueryParameters(Map<String, String> params) {
@@ -424,7 +548,15 @@ class AuthFacade implements IAuthFacade {
     }
   }
 
-  /// User must be registered and signed in firebase to perform this function
+  /// creates empty [ProjectsStatisticsModel] and add it to the database
+  ///
+  /// Note 1: there is only 1 record of [ProjectsStatisticsModel] for each user in the db.
+  /// Note 2: User must be registered and signed in firebase to perform this function.
+  ///
+  /// steps:
+  /// 1- create empty [ProjectsStatisticsModel] by calling [ProjectsStatisticsModel.createEmpty].
+  /// 2- converting it to DTO then to json by calling [ProjectsStatisticsModelDto.fromDomain().toJson()].
+  /// 3- add the [ProjectsStatisticsModel] record to db.
   Future<void> createProjectsStatisticsModelForNewUsers() async {
     // Create ProjectsStatisticsModel document
     await _firebaseFirestore.userProjectsStatisticsDocument.set(

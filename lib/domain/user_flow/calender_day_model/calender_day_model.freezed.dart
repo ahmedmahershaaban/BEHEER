@@ -16,10 +16,29 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CalenderDayModel {
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id => throw _privateConstructorUsedError;
+
+  /// The user's schedules he made for this day.
+  ///
+  /// Contains `KtList<ScheduleModel>`.
   KtList<ScheduleModel> get schedules => throw _privateConstructorUsedError;
+
+  /// The user's tasks he made for this day.
+  ///
+  /// Contains `KtList<TaskModel>`.
   KtList<TaskModel> get tasks => throw _privateConstructorUsedError;
+
+  /// The calender day last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The calender day creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -154,14 +173,33 @@ class _$CalenderDayModelImpl extends _CalenderDayModel {
       required this.creationDate})
       : super._();
 
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   @override
   final UniqueId id;
+
+  /// The user's schedules he made for this day.
+  ///
+  /// Contains `KtList<ScheduleModel>`.
   @override
   final KtList<ScheduleModel> schedules;
+
+  /// The user's tasks he made for this day.
+  ///
+  /// Contains `KtList<TaskModel>`.
   @override
   final KtList<TaskModel> tasks;
+
+  /// The calender day last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate lastUpdate;
+
+  /// The calender day creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   @override
   final DuoDate creationDate;
 
@@ -207,14 +245,34 @@ abstract class _CalenderDayModel extends CalenderDayModel {
   const _CalenderDayModel._() : super._();
 
   @override
+
+  /// The model unique ID.
+  ///
+  /// Contains `Either<ValueFailure<String> , String>`.
   UniqueId get id;
   @override
+
+  /// The user's schedules he made for this day.
+  ///
+  /// Contains `KtList<ScheduleModel>`.
   KtList<ScheduleModel> get schedules;
   @override
+
+  /// The user's tasks he made for this day.
+  ///
+  /// Contains `KtList<TaskModel>`.
   KtList<TaskModel> get tasks;
   @override
+
+  /// The calender day last update date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get lastUpdate;
   @override
+
+  /// The calender day creation date.
+  ///
+  /// Contains `Either<ValueFailure<DateTime> , DateTime>`.
   DuoDate get creationDate;
   @override
   @JsonKey(ignore: true)

@@ -15,13 +15,23 @@ abstract class CalenderDayModelDto implements _$CalenderDayModelDto {
   const CalenderDayModelDto._();
 
   const factory CalenderDayModelDto({
+    /// The model unique ID.
     required String id,
+
+    /// The user's schedules he made for this day.
     required List<ScheduleModelDto> schedules,
+
+    /// The user's tasks he made for this day.
     required List<TaskModelDto> tasks,
+
+    /// The calender day last update date.
     @TimestampConverter() required DateTime lastUpdate,
+
+    /// The calender day creation date.
     @TimestampConverter() required DateTime creationDate,
   }) = _calenderDayModelDto;
 
+  /// Responsible to generate [CalenderDayModelDto] from [CalenderDayModel].
   factory CalenderDayModelDto.fromDomain(CalenderDayModel calenderDayModel) {
     return CalenderDayModelDto(
       id: calenderDayModel.id.getOrCrash(),
@@ -32,6 +42,7 @@ abstract class CalenderDayModelDto implements _$CalenderDayModelDto {
     );
   }
 
+  /// Responsible to generate [CalenderDayModel] from [CalenderDayModelDto].
   CalenderDayModel toDomain() {
     return CalenderDayModel(
       id: UniqueId.fromUniqueString(this.id),
@@ -42,8 +53,10 @@ abstract class CalenderDayModelDto implements _$CalenderDayModelDto {
     );
   }
 
+  /// Responsible to generate `Json` format from [CalenderDayModelDto].
   factory CalenderDayModelDto.fromJson(Map<String, dynamic> json) => _$CalenderDayModelDtoFromJson(json);
 
+  /// Responsible to generate [CalenderDayModelDto] from [DocumentSnapshot].
   factory CalenderDayModelDto.fromFireStore(DocumentSnapshot doc) {
     return CalenderDayModelDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }

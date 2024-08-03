@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ringo_media_management/presentation/core/extensions/theme_mode_extensions.dart';
 import 'package:ringo_media_management/presentation/core/themes/app_themes.dart';
 
+/// Extension on [BuildContext] to help using it and make a lot of shortcuts that would
+/// maintain clean and reusable code.
 extension TextThemeExtensions on BuildContext {
   TextStyle get font5w400 => GoogleFonts.urbanist(
         fontSize: 5.sp,

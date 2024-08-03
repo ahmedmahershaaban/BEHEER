@@ -6,6 +6,8 @@ import 'package:injectable/injectable.dart';
 import 'user_flow_menu_controller_event.dart';
 import 'user_flow_menu_controller_state.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @LazySingleton()
 class UserFlowMenuControllerBloc extends Bloc<UserFlowMenuControllerEvent, UserFlowMenuControllerState> {
   UserFlowMenuControllerBloc() : super(UserFlowMenuControllerState.initial()) {

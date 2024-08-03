@@ -3,6 +3,15 @@ import 'package:ringo_media_management/domain/core/failures.dart';
 import 'package:ringo_media_management/domain/core/value_objects.dart';
 import 'package:ringo_media_management/domain/core/value_validators.dart';
 
+/// [ValueObject] that represent the `String` in the valid form.
+///
+/// Uses [validateNullValue] and [validateStringNotEmpty] and [validateSingleLine]
+/// to valid the input type `String`.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.nullValue].
+/// [ValueFailure.empty].
+/// [ValueFailure.multiline].
 class Name extends ValueObject<String> {
   const Name._(this.value);
 
@@ -18,6 +27,15 @@ class Name extends ValueObject<String> {
   }
 }
 
+/// [ValueObject] that represent the `String` in the valid format for email address.
+///
+/// Uses [validateNullValue] and [validateStringNotEmpty] and [validateEmailAddress]
+/// to valid the input type `String` for email address.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.nullValue].
+/// [ValueFailure.empty].
+/// [ValueFailure.invalidEmail].
 class EmailAddress extends ValueObject<String> {
   const EmailAddress._(this.value);
 
@@ -33,6 +51,15 @@ class EmailAddress extends ValueObject<String> {
   }
 }
 
+/// [ValueObject] that represent the `Option<String>` in the valid form.
+///
+/// Uses [validateSingleLine] and [validateStringNotEmpty] and [Option.fold]
+/// to valid the input type `Option<String>`.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.multiline].
+/// [ValueFailure.empty].
+/// [ValueFailure.invalidOptionString].
 class NotificationToken extends ValueObject<Option<String>> {
   const NotificationToken._(this.value);
 
@@ -50,6 +77,15 @@ class NotificationToken extends ValueObject<Option<String>> {
   }
 }
 
+/// [ValueObject] that represent the `Option<String>` in the valid form.
+///
+/// Uses [validateStringNotEmpty] and [validateNullValue] and [validatePhoneNumber] and [Option.fold]
+/// to valid the input type `Option<String>`.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.empty].
+/// [ValueFailure.nullValue].
+/// [ValueFailure.invalidPhoneNumber].
 class PhoneNumber extends ValueObject<Option<String>> {
   const PhoneNumber._(this.value);
 
@@ -73,6 +109,15 @@ class PhoneNumber extends ValueObject<Option<String>> {
   }
 }
 
+/// [ValueObject] that represent the `String` in the valid format for password.
+///
+/// Uses [validateNullValue] and [validateStringNotEmpty] and [validatePassword]
+/// to valid the input type `String` for password.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.nullValue].
+/// [ValueFailure.empty].
+/// [ValueFailure.invalidPassword].
 class Password extends ValueObject<String> {
   const Password._(this.value);
 
@@ -88,6 +133,16 @@ class Password extends ValueObject<String> {
   }
 }
 
+/// [ValueObject] that represent the `Option<String>` in the valid form.
+///
+/// Uses [validateStringNotEmpty] and [validateNullValue] and [validateSingleLine] and [Option.fold]
+/// to valid the input type `Option<String>`.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.empty].
+/// [ValueFailure.nullValue].
+/// [ValueFailure.multiline].
+/// [ValueFailure.invalidOptionString].
 class Address extends ValueObject<Option<String>> {
   const Address._(this.value);
 
@@ -111,6 +166,16 @@ class Address extends ValueObject<Option<String>> {
   }
 }
 
+/// [ValueObject] that represent the `Option<String>` in the valid form.
+///
+/// Uses [validateStringNotEmpty] and [validateSingleLine] and [validateUrl] and [Option.fold]
+/// to valid the input type `Option<String>`.
+///
+/// A [ValueFailure] maybe returned with the following failures:
+/// [ValueFailure.empty].
+/// [ValueFailure.multiline].
+/// [ValueFailure.invalidUrl].
+/// [ValueFailure.invalidOptionString].
 class Photo extends ValueObject<Option<String>> {
   const Photo._(this.value);
 

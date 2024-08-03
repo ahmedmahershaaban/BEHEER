@@ -20,11 +20,20 @@ CalenderDayModelDto _$CalenderDayModelDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CalenderDayModelDto {
+  /// The model unique ID.
   String get id => throw _privateConstructorUsedError;
+
+  /// The user's schedules he made for this day.
   List<ScheduleModelDto> get schedules => throw _privateConstructorUsedError;
+
+  /// The user's tasks he made for this day.
   List<TaskModelDto> get tasks => throw _privateConstructorUsedError;
+
+  /// The calender day last update date.
   @TimestampConverter()
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The calender day creation date.
   @TimestampConverter()
   DateTime get creationDate => throw _privateConstructorUsedError;
 
@@ -166,9 +175,14 @@ class _$calenderDayModelDtoImpl extends _calenderDayModelDto {
   factory _$calenderDayModelDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$calenderDayModelDtoImplFromJson(json);
 
+  /// The model unique ID.
   @override
   final String id;
+
+  /// The user's schedules he made for this day.
   final List<ScheduleModelDto> _schedules;
+
+  /// The user's schedules he made for this day.
   @override
   List<ScheduleModelDto> get schedules {
     if (_schedules is EqualUnmodifiableListView) return _schedules;
@@ -176,7 +190,10 @@ class _$calenderDayModelDtoImpl extends _calenderDayModelDto {
     return EqualUnmodifiableListView(_schedules);
   }
 
+  /// The user's tasks he made for this day.
   final List<TaskModelDto> _tasks;
+
+  /// The user's tasks he made for this day.
   @override
   List<TaskModelDto> get tasks {
     if (_tasks is EqualUnmodifiableListView) return _tasks;
@@ -184,9 +201,12 @@ class _$calenderDayModelDtoImpl extends _calenderDayModelDto {
     return EqualUnmodifiableListView(_tasks);
   }
 
+  /// The calender day last update date.
   @override
   @TimestampConverter()
   final DateTime lastUpdate;
+
+  /// The calender day creation date.
   @override
   @TimestampConverter()
   final DateTime creationDate;
@@ -250,15 +270,25 @@ abstract class _calenderDayModelDto extends CalenderDayModelDto {
       _$calenderDayModelDtoImpl.fromJson;
 
   @override
+
+  /// The model unique ID.
   String get id;
   @override
+
+  /// The user's schedules he made for this day.
   List<ScheduleModelDto> get schedules;
   @override
+
+  /// The user's tasks he made for this day.
   List<TaskModelDto> get tasks;
   @override
+
+  /// The calender day last update date.
   @TimestampConverter()
   DateTime get lastUpdate;
   @override
+
+  /// The calender day creation date.
   @TimestampConverter()
   DateTime get creationDate;
   @override

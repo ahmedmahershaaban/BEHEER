@@ -21,11 +21,18 @@ ProjectsStatisticsModelDto _$ProjectsStatisticsModelDtoFromJson(
 
 /// @nodoc
 mixin _$ProjectsStatisticsModelDto {
+  /// The model unique ID.
   String get id => throw _privateConstructorUsedError;
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
   Map<dynamic, Map<dynamic, dynamic>>? get projectsStatistics =>
       throw _privateConstructorUsedError;
+
+  /// The model last update date.
   @TimestampConverter()
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The model creation date.
   @TimestampConverter()
   DateTime get creationDate => throw _privateConstructorUsedError;
 
@@ -159,9 +166,14 @@ class _$projectsStatisticsModelDtoImpl extends _projectsStatisticsModelDto {
           Map<String, dynamic> json) =>
       _$$projectsStatisticsModelDtoImplFromJson(json);
 
+  /// The model unique ID.
   @override
   final String id;
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
   final Map<dynamic, Map<dynamic, dynamic>>? _projectsStatistics;
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
   @override
   Map<dynamic, Map<dynamic, dynamic>>? get projectsStatistics {
     final value = _projectsStatistics;
@@ -172,9 +184,12 @@ class _$projectsStatisticsModelDtoImpl extends _projectsStatisticsModelDto {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// The model last update date.
   @override
   @TimestampConverter()
   final DateTime lastUpdate;
+
+  /// The model creation date.
   @override
   @TimestampConverter()
   final DateTime creationDate;
@@ -235,13 +250,21 @@ abstract class _projectsStatisticsModelDto extends ProjectsStatisticsModelDto {
       _$projectsStatisticsModelDtoImpl.fromJson;
 
   @override
+
+  /// The model unique ID.
   String get id;
   @override
+
+  /// All projects statistics should be added here for analysis purposes and easy display.
   Map<dynamic, Map<dynamic, dynamic>>? get projectsStatistics;
   @override
+
+  /// The model last update date.
   @TimestampConverter()
   DateTime get lastUpdate;
   @override
+
+  /// The model creation date.
   @TimestampConverter()
   DateTime get creationDate;
   @override

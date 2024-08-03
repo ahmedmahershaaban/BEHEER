@@ -20,20 +20,43 @@ UserModelDto _$UserModelDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModelDto {
+  /// The user's unique ID.
   String get id => throw _privateConstructorUsedError;
+
+  /// The user's full name.
   String get name => throw _privateConstructorUsedError;
+
+  /// The user's email address.
   String get emailAddress => throw _privateConstructorUsedError;
+
+  /// The user's local address where he lives.
   String? get address => throw _privateConstructorUsedError;
+
+  /// The user's phone number.
   String? get phoneNumber => throw _privateConstructorUsedError;
+
+  /// The user's website url.
   String? get website => throw _privateConstructorUsedError;
-  String? get notificationToken => throw _privateConstructorUsedError;
+
+  /// The user's personal photo.
   String? get photo => throw _privateConstructorUsedError;
+
+  /// The user's notification token.
+  String? get notificationToken => throw _privateConstructorUsedError;
+
+  /// Returns whether the user is admin or not.
+  bool get admin => throw _privateConstructorUsedError;
+
+  /// Returns whether the user is blocked or not.
+  bool get isBlocked => throw _privateConstructorUsedError;
+
+  /// The user's account last update date.
   @TimestampConverter()
   DateTime get lastUpdate => throw _privateConstructorUsedError;
+
+  /// The user's account creation date.
   @TimestampConverter()
   DateTime get creationDate => throw _privateConstructorUsedError;
-  bool get admin => throw _privateConstructorUsedError;
-  bool get isBlocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,12 +77,12 @@ abstract class $UserModelDtoCopyWith<$Res> {
       String? address,
       String? phoneNumber,
       String? website,
-      String? notificationToken,
       String? photo,
-      @TimestampConverter() DateTime lastUpdate,
-      @TimestampConverter() DateTime creationDate,
+      String? notificationToken,
       bool admin,
-      bool isBlocked});
+      bool isBlocked,
+      @TimestampConverter() DateTime lastUpdate,
+      @TimestampConverter() DateTime creationDate});
 }
 
 /// @nodoc
@@ -81,12 +104,12 @@ class _$UserModelDtoCopyWithImpl<$Res, $Val extends UserModelDto>
     Object? address = freezed,
     Object? phoneNumber = freezed,
     Object? website = freezed,
-    Object? notificationToken = freezed,
     Object? photo = freezed,
-    Object? lastUpdate = null,
-    Object? creationDate = null,
+    Object? notificationToken = freezed,
     Object? admin = null,
     Object? isBlocked = null,
+    Object? lastUpdate = null,
+    Object? creationDate = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -113,22 +136,14 @@ class _$UserModelDtoCopyWithImpl<$Res, $Val extends UserModelDto>
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
               as String?,
-      notificationToken: freezed == notificationToken
-          ? _value.notificationToken
-          : notificationToken // ignore: cast_nullable_to_non_nullable
-              as String?,
       photo: freezed == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastUpdate: null == lastUpdate
-          ? _value.lastUpdate
-          : lastUpdate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      creationDate: null == creationDate
-          ? _value.creationDate
-          : creationDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      notificationToken: freezed == notificationToken
+          ? _value.notificationToken
+          : notificationToken // ignore: cast_nullable_to_non_nullable
+              as String?,
       admin: null == admin
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
@@ -137,6 +152,14 @@ class _$UserModelDtoCopyWithImpl<$Res, $Val extends UserModelDto>
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool,
+      lastUpdate: null == lastUpdate
+          ? _value.lastUpdate
+          : lastUpdate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      creationDate: null == creationDate
+          ? _value.creationDate
+          : creationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -156,12 +179,12 @@ abstract class _$$userModelDtoImplCopyWith<$Res>
       String? address,
       String? phoneNumber,
       String? website,
-      String? notificationToken,
       String? photo,
-      @TimestampConverter() DateTime lastUpdate,
-      @TimestampConverter() DateTime creationDate,
+      String? notificationToken,
       bool admin,
-      bool isBlocked});
+      bool isBlocked,
+      @TimestampConverter() DateTime lastUpdate,
+      @TimestampConverter() DateTime creationDate});
 }
 
 /// @nodoc
@@ -181,12 +204,12 @@ class __$$userModelDtoImplCopyWithImpl<$Res>
     Object? address = freezed,
     Object? phoneNumber = freezed,
     Object? website = freezed,
-    Object? notificationToken = freezed,
     Object? photo = freezed,
-    Object? lastUpdate = null,
-    Object? creationDate = null,
+    Object? notificationToken = freezed,
     Object? admin = null,
     Object? isBlocked = null,
+    Object? lastUpdate = null,
+    Object? creationDate = null,
   }) {
     return _then(_$userModelDtoImpl(
       id: null == id
@@ -213,22 +236,14 @@ class __$$userModelDtoImplCopyWithImpl<$Res>
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
               as String?,
-      notificationToken: freezed == notificationToken
-          ? _value.notificationToken
-          : notificationToken // ignore: cast_nullable_to_non_nullable
-              as String?,
       photo: freezed == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastUpdate: null == lastUpdate
-          ? _value.lastUpdate
-          : lastUpdate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      creationDate: null == creationDate
-          ? _value.creationDate
-          : creationDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      notificationToken: freezed == notificationToken
+          ? _value.notificationToken
+          : notificationToken // ignore: cast_nullable_to_non_nullable
+              as String?,
       admin: null == admin
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
@@ -237,6 +252,14 @@ class __$$userModelDtoImplCopyWithImpl<$Res>
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool,
+      lastUpdate: null == lastUpdate
+          ? _value.lastUpdate
+          : lastUpdate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      creationDate: null == creationDate
+          ? _value.creationDate
+          : creationDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -251,47 +274,70 @@ class _$userModelDtoImpl extends _userModelDto {
       required this.address,
       required this.phoneNumber,
       required this.website,
-      required this.notificationToken,
       required this.photo,
-      @TimestampConverter() required this.lastUpdate,
-      @TimestampConverter() required this.creationDate,
+      required this.notificationToken,
       required this.admin,
-      required this.isBlocked})
+      required this.isBlocked,
+      @TimestampConverter() required this.lastUpdate,
+      @TimestampConverter() required this.creationDate})
       : super._();
 
   factory _$userModelDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$userModelDtoImplFromJson(json);
 
+  /// The user's unique ID.
   @override
   final String id;
+
+  /// The user's full name.
   @override
   final String name;
+
+  /// The user's email address.
   @override
   final String emailAddress;
+
+  /// The user's local address where he lives.
   @override
   final String? address;
+
+  /// The user's phone number.
   @override
   final String? phoneNumber;
+
+  /// The user's website url.
   @override
   final String? website;
-  @override
-  final String? notificationToken;
+
+  /// The user's personal photo.
   @override
   final String? photo;
+
+  /// The user's notification token.
   @override
-  @TimestampConverter()
-  final DateTime lastUpdate;
-  @override
-  @TimestampConverter()
-  final DateTime creationDate;
+  final String? notificationToken;
+
+  /// Returns whether the user is admin or not.
   @override
   final bool admin;
+
+  /// Returns whether the user is blocked or not.
   @override
   final bool isBlocked;
 
+  /// The user's account last update date.
+  @override
+  @TimestampConverter()
+  final DateTime lastUpdate;
+
+  /// The user's account creation date.
+  @override
+  @TimestampConverter()
+  final DateTime creationDate;
+
   @override
   String toString() {
-    return 'UserModelDto(id: $id, name: $name, emailAddress: $emailAddress, address: $address, phoneNumber: $phoneNumber, website: $website, notificationToken: $notificationToken, photo: $photo, lastUpdate: $lastUpdate, creationDate: $creationDate, admin: $admin, isBlocked: $isBlocked)';
+    return 'UserModelDto(id: $id, name: $name, emailAddress: $emailAddress, address: $address, phoneNumber: $phoneNumber, website: $website, photo: $photo, notificationToken: $notificationToken, admin: $admin, isBlocked: $isBlocked, lastUpdate: $lastUpdate, creationDate: $creationDate)';
   }
 
   @override
@@ -307,16 +353,16 @@ class _$userModelDtoImpl extends _userModelDto {
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.website, website) || other.website == website) &&
+            (identical(other.photo, photo) || other.photo == photo) &&
             (identical(other.notificationToken, notificationToken) ||
                 other.notificationToken == notificationToken) &&
-            (identical(other.photo, photo) || other.photo == photo) &&
+            (identical(other.admin, admin) || other.admin == admin) &&
+            (identical(other.isBlocked, isBlocked) ||
+                other.isBlocked == isBlocked) &&
             (identical(other.lastUpdate, lastUpdate) ||
                 other.lastUpdate == lastUpdate) &&
             (identical(other.creationDate, creationDate) ||
-                other.creationDate == creationDate) &&
-            (identical(other.admin, admin) || other.admin == admin) &&
-            (identical(other.isBlocked, isBlocked) ||
-                other.isBlocked == isBlocked));
+                other.creationDate == creationDate));
   }
 
   @JsonKey(ignore: true)
@@ -329,12 +375,12 @@ class _$userModelDtoImpl extends _userModelDto {
       address,
       phoneNumber,
       website,
-      notificationToken,
       photo,
-      lastUpdate,
-      creationDate,
+      notificationToken,
       admin,
-      isBlocked);
+      isBlocked,
+      lastUpdate,
+      creationDate);
 
   @JsonKey(ignore: true)
   @override
@@ -352,49 +398,74 @@ class _$userModelDtoImpl extends _userModelDto {
 
 abstract class _userModelDto extends UserModelDto {
   const factory _userModelDto(
-      {required final String id,
-      required final String name,
-      required final String emailAddress,
-      required final String? address,
-      required final String? phoneNumber,
-      required final String? website,
-      required final String? notificationToken,
-      required final String? photo,
-      @TimestampConverter() required final DateTime lastUpdate,
-      @TimestampConverter() required final DateTime creationDate,
-      required final bool admin,
-      required final bool isBlocked}) = _$userModelDtoImpl;
+          {required final String id,
+          required final String name,
+          required final String emailAddress,
+          required final String? address,
+          required final String? phoneNumber,
+          required final String? website,
+          required final String? photo,
+          required final String? notificationToken,
+          required final bool admin,
+          required final bool isBlocked,
+          @TimestampConverter() required final DateTime lastUpdate,
+          @TimestampConverter() required final DateTime creationDate}) =
+      _$userModelDtoImpl;
   const _userModelDto._() : super._();
 
   factory _userModelDto.fromJson(Map<String, dynamic> json) =
       _$userModelDtoImpl.fromJson;
 
   @override
+
+  /// The user's unique ID.
   String get id;
   @override
+
+  /// The user's full name.
   String get name;
   @override
+
+  /// The user's email address.
   String get emailAddress;
   @override
+
+  /// The user's local address where he lives.
   String? get address;
   @override
+
+  /// The user's phone number.
   String? get phoneNumber;
   @override
+
+  /// The user's website url.
   String? get website;
   @override
-  String? get notificationToken;
-  @override
+
+  /// The user's personal photo.
   String? get photo;
   @override
+
+  /// The user's notification token.
+  String? get notificationToken;
+  @override
+
+  /// Returns whether the user is admin or not.
+  bool get admin;
+  @override
+
+  /// Returns whether the user is blocked or not.
+  bool get isBlocked;
+  @override
+
+  /// The user's account last update date.
   @TimestampConverter()
   DateTime get lastUpdate;
   @override
+
+  /// The user's account creation date.
   @TimestampConverter()
   DateTime get creationDate;
-  @override
-  bool get admin;
-  @override
-  bool get isBlocked;
   @override
   @JsonKey(ignore: true)
   _$$userModelDtoImplCopyWith<_$userModelDtoImpl> get copyWith =>

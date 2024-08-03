@@ -14,20 +14,44 @@ abstract class UserModelDto implements _$UserModelDto {
   const UserModelDto._();
 
   const factory UserModelDto({
+    /// The user's unique ID.
     required String id,
+
+    /// The user's full name.
     required String name,
+
+    /// The user's email address.
     required String emailAddress,
+
+    /// The user's local address where he lives.
     required String? address,
+
+    /// The user's phone number.
     required String? phoneNumber,
+
+    /// The user's website url.
     required String? website,
-    required String? notificationToken,
+
+    /// The user's personal photo.
     required String? photo,
-    @TimestampConverter() required DateTime lastUpdate,
-    @TimestampConverter() required DateTime creationDate,
+
+    /// The user's notification token.
+    required String? notificationToken,
+
+    /// Returns whether the user is admin or not.
     required bool admin,
+
+    /// Returns whether the user is blocked or not.
     required bool isBlocked,
+
+    /// The user's account last update date.
+    @TimestampConverter() required DateTime lastUpdate,
+
+    /// The user's account creation date.
+    @TimestampConverter() required DateTime creationDate,
   }) = _userModelDto;
 
+  /// Responsible to generate [UserModelDto] from [UserModel].
   factory UserModelDto.fromDomain(UserModel userModel) {
     return UserModelDto(
       id: userModel.id.getOrCrash(),
@@ -45,6 +69,7 @@ abstract class UserModelDto implements _$UserModelDto {
     );
   }
 
+  /// Responsible to generate [UserModel] from [UserModelDto].
   UserModel toDomain() {
     return UserModel(
       id: UniqueId.fromUniqueString(this.id),
@@ -62,8 +87,10 @@ abstract class UserModelDto implements _$UserModelDto {
     );
   }
 
+  /// Responsible to generate `Json` format from [UserModelDto].
   factory UserModelDto.fromJson(Map<String, dynamic> json) => _$UserModelDtoFromJson(json);
 
+  /// Responsible to generate [UserModelDto] from [DocumentSnapshot].
   factory UserModelDto.fromFireStore(DocumentSnapshot doc) {
     return UserModelDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }

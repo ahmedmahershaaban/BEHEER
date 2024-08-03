@@ -3,6 +3,8 @@ import 'package:ringo_media_management/domain/auth_flow/i_auth_facade.dart';
 import 'package:ringo_media_management/domain/core/errors.dart';
 import 'package:ringo_media_management/infrastructure/core/injection/injection.dart';
 
+/// Extension on [FirebaseFirestore] to help using it and make a lot of shortcuts that would
+/// maintain clean and reusable code.
 extension FirebaseX on FirebaseFirestore {
   DocumentReference userModelDocument() {
     final userModelIdOption = getIt<IAuthFacade>().getSignedInUserId();

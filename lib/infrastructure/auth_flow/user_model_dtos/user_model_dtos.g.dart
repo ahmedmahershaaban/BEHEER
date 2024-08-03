@@ -13,12 +13,12 @@ _$userModelDtoImpl _$$userModelDtoImplFromJson(Map json) => _$userModelDtoImpl(
       address: json['address'] as String?,
       phoneNumber: json['phoneNumber'] as String?,
       website: json['website'] as String?,
-      notificationToken: json['notificationToken'] as String?,
       photo: json['photo'] as String?,
-      lastUpdate: const TimestampConverter().fromJson(json['lastUpdate']),
-      creationDate: const TimestampConverter().fromJson(json['creationDate']),
+      notificationToken: json['notificationToken'] as String?,
       admin: json['admin'] as bool,
       isBlocked: json['isBlocked'] as bool,
+      lastUpdate: const TimestampConverter().fromJson(json['lastUpdate']),
+      creationDate: const TimestampConverter().fromJson(json['creationDate']),
     );
 
 Map<String, dynamic> _$$userModelDtoImplToJson(_$userModelDtoImpl instance) =>
@@ -29,10 +29,10 @@ Map<String, dynamic> _$$userModelDtoImplToJson(_$userModelDtoImpl instance) =>
       'address': instance.address,
       'phoneNumber': instance.phoneNumber,
       'website': instance.website,
-      'notificationToken': instance.notificationToken,
       'photo': instance.photo,
-      'lastUpdate': const TimestampConverter().toJson(instance.lastUpdate),
-      'creationDate': const TimestampConverter().toJson(instance.creationDate),
+      'notificationToken': instance.notificationToken,
       'admin': instance.admin,
       'isBlocked': instance.isBlocked,
+      'lastUpdate': const TimestampConverter().toJson(instance.lastUpdate),
+      'creationDate': const TimestampConverter().toJson(instance.creationDate),
     };

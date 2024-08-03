@@ -17,6 +17,10 @@ import 'package:ringo_media_management/infrastructure/user_flow/project_model_dt
 import 'package:ringo_media_management/infrastructure/user_flow/projects_statistics_model_dtos/projects_statistics_model_dtos.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// The implementations of the interface [IUserFlowFacade].
+///
+/// This implementation will have all the needed logic for user flow to deal
+/// with APIs and third party libraries.
 @LazySingleton(as: IUserFlowFacade)
 class UserFlowFacade implements IUserFlowFacade {
   final FirebaseFirestore _firebaseFirestore;
@@ -27,6 +31,18 @@ class UserFlowFacade implements IUserFlowFacade {
     this._internetConnection,
   );
 
+  /// Add or Update [CalenderDayModel] in the db.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- convert model to dto.
+  /// 3- update the model on db.
+  /// 4- return `right(Unit())`.
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.noInternetConnection].
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
   Future<Either<UserFlowFailure, Unit>> addOrUpdateCalenderDayModel({required CalenderDayModel calenderDayModel}) async {
     try {
@@ -54,13 +70,21 @@ class UserFlowFacade implements IUserFlowFacade {
     }
   }
 
-  /// This for the first page of the application but there is no UI because this is a test app
+  /// Return `List` of [ProjectModel] that is found in the db with no filtration.
   ///
-  @override
-  Future<Either<UserFlowFailure, Unit>> getAllNeededInfo() async {
-    return left(const UserFlowFailure.notImplementedFeature());
-  }
-
+  /// Note: If there is no record for [ProjectModel] an empty `KtList` will be returned.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- get all the models that is found in the db.
+  /// 3- loop throw the list of records and convert them to [ProjectModel] by using [ProjectModelDto.fromFireStore(doc).toDomain()].
+  /// 4- return `right(KtList<ProjectModel>)`.
+  ///
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.noInternetConnection].
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
   Future<Either<UserFlowFailure, KtList<ProjectModel>>> getAllProjectsModel() async {
     try {
@@ -88,14 +112,30 @@ class UserFlowFacade implements IUserFlowFacade {
     }
   }
 
+  /// Return a [CalenderDayModel] from db by [id].
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- convert the [inputDay] which is `DateTime` to [UniqueId] by using [UniqueId.fromDateTime].
+  /// 3- convert the generated [UniqueId] to `String` By [UniqueId.getOrCrash].
+  /// 4- search for the [CalenderDayModel] by the new generated `id`.
+  /// 5- if the [CalenderDayModel] is not exists return `right(none())`.
+  /// 6- if [CalenderDayModel] found use [CalenderDayModelDto.fromFireStore] to convert the firebase json data to dto.
+  /// 7- convert [CalenderDayModelDto] to [CalenderDayModel] by [CalenderDayModelDto.toDomain].
+  /// 8- return `some(CalenderDayModel())`.
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.noInternetConnection].
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
-  Future<Either<UserFlowFailure, Option<CalenderDayModel>>> getCalenderDayModelByDate({required DateTime day}) async {
+  Future<Either<UserFlowFailure, Option<CalenderDayModel>>> getCalenderDayModelByDate({required DateTime inputDay}) async {
     try {
       bool result = await _internetConnection.hasInternetAccess;
       if (!result) {
         return left(const UserFlowFailure.noInternetConnection());
       }
-      return _firebaseFirestore.userCalenderDaysCollection.doc(UniqueId.fromDateTime(day).getOrCrash()).get().then((doc) {
+      return _firebaseFirestore.userCalenderDaysCollection.doc(UniqueId.fromDateTime(inputDay).getOrCrash()).get().then((doc) {
         if (!doc.exists) {
           return right(none());
         }
@@ -114,6 +154,21 @@ class UserFlowFacade implements IUserFlowFacade {
     }
   }
 
+  /// Return a [ProjectsStatisticsModel] from db.
+  ///
+  /// Note: [ProjectsStatisticsModel] is only 1 record in DB which holds all the data necessary for analysis purposes.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- get the only 1 record in the db.
+  /// 3- if record is not exists return `left(UserFlowFailure.serverError())`.
+  /// 4- if record is exists convert the record into [ProjectsStatisticsModel] by [ProjectsStatisticsModelDto.fromFireStore(doc).toDomain()].
+  /// 5- return `right(ProjectsStatisticsModel())`.
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.noInternetConnection].
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
   Future<Either<UserFlowFailure, ProjectsStatisticsModel>> getProjectsStatisticModel() async {
     try {
@@ -142,9 +197,26 @@ class UserFlowFacade implements IUserFlowFacade {
     }
   }
 
+  /// search for all [ProjectModel]s by [searchValue] in db and return `List` of [ProjectModel].
+  ///
+  /// Note:
+  /// 1- I'm using `\uf8ff` special code to search the db as firebase does not support text search.
+  /// 2- if there is no record for [ProjectModel] an empty `KtList` will be returned.
+  ///
+  /// Steps:
+  /// 1- check internet connections.
+  /// 2- prepare the search query and add a limit of `20` records as maximum result to not drain the `CRUD` and execute it.
+  /// 3- loop throw the list of records and convert them to [ProjectModel] by using [ProjectModelDto.fromFireStore(doc).toDomain()].
+  /// 4- return `right(KtList<ProjectModel>)`.
+  ///
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.noInternetConnection].
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
-  Future<Either<UserFlowFailure, KtList<ProjectModel>>> searchForProjectsModel({required String? value}) async {
-    if (value == null || value.trim().isEmpty) {
+  Future<Either<UserFlowFailure, KtList<ProjectModel>>> searchForProjectsModel({required String? searchValue}) async {
+    if (searchValue == null || searchValue.trim().isEmpty) {
       return right(const KtList.empty());
     } else {
       try {
@@ -155,9 +227,9 @@ class UserFlowFacade implements IUserFlowFacade {
 
         return _firebaseFirestore.userProjectsCollection
             .orderBy("title")
-            .startAt([value])
+            .startAt([searchValue])
             .endAt(
-              ['$value\uf8ff'],
+              ['$searchValue\uf8ff'],
             )
             .limit(20)
             .get()
@@ -179,9 +251,28 @@ class UserFlowFacade implements IUserFlowFacade {
     }
   }
 
+  /// Return `Stream` for only one [CalenderDayModel] from db for real time updates.
+  ///
+  /// Note:
+  /// 1- If there is no internet connection `onErrorReturnWith` will return `serverError`!
+  ///
+  /// Steps:
+  /// 1- convert the [inputDay] which is `DateTime` to [UniqueId] by using [UniqueId.fromDateTime].
+  /// 3- convert the generated [UniqueId] to `String` By [UniqueId.getOrCrash].
+  /// 4- search for the [CalenderDayModel] by the new generated `id` using `Stream`.
+  /// 5- if the [CalenderDayModel] is not exists return `right(none())` in `Stream` format.
+  /// 6- if [CalenderDayModel] is found, then use [CalenderDayModelDto.fromFireStore] to convert the firebase json data to dto.
+  /// 7- convert [CalenderDayModelDto] to [CalenderDayModel] by [CalenderDayModelDto.toDomain].
+  /// 8- return `some(CalenderDayModel())` in `Stream` format.
+  ///
+  ///
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
-  Stream<Either<UserFlowFailure, Option<CalenderDayModel>>> streamCalenderDayModelByDate({required DateTime day}) async* {
-    yield* _firebaseFirestore.userCalenderDaysCollection.doc(UniqueId.fromDateTime(day).getOrCrash()).snapshots().map(
+  Stream<Either<UserFlowFailure, Option<CalenderDayModel>>> streamCalenderDayModelByDate({required DateTime inputDay}) async* {
+    yield* _firebaseFirestore.userCalenderDaysCollection.doc(UniqueId.fromDateTime(inputDay).getOrCrash()).snapshots().map(
       (docSnap) {
         if (!docSnap.exists) {
           return right<UserFlowFailure, Option<CalenderDayModel>>(none());
@@ -201,6 +292,18 @@ class UserFlowFacade implements IUserFlowFacade {
     });
   }
 
+  /// Update user profile data in the db.
+  ///
+  /// Steps:
+  /// 1- validate the data which will sent to the db.
+  /// 2- check internet connections.
+  /// 3- update the db using the validated data.
+  /// 4- return `right(Unit())`.
+  ///
+  /// A [UserFlowFailure] maybe returned with the following failures:
+  /// [UserFlowFailure.noInternetConnection].
+  /// [UserFlowFailure.insufficientPermission].
+  /// [UserFlowFailure.serverError].
   @override
   Future<Either<UserFlowFailure, Unit>> updateUserProfile({
     required Name name,

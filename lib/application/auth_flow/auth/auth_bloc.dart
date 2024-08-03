@@ -15,6 +15,8 @@ import 'package:ringo_media_management/infrastructure/core/injection/injection.d
 import 'auth_event.dart';
 import 'auth_state.dart';
 
+/// This File will be documented in the next steps, covering both the `Presentation Layer` and `Application Layer`.
+/// The `Domain Layer` and `Infrastructure Layer` have already been documented.
 @Singleton()
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _iAuthFacade;
