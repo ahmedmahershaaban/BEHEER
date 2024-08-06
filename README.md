@@ -5,18 +5,37 @@
 ## Table of Contents
 
 - [Project Overview](#project-overview)
+- [Screenshots & Videos](#screenshots--videos)
 - [Key Features](#key-features)
 - [Architecture](#architecture)
 - [Technology Stack](#technology-stack)
 - [Packages Used](#packages-used)
 - [CI/CD Integration](#cicd-integration)
-- [Screenshots & Videos](#screenshots--videos)
 - [Installation & Setup](#installation--setup)
 - [Contact](#contact)
 
 ## Project Overview
 
 The **BEHEER** application was developed in just 3 days, showcasing a rapid yet thorough approach to building a feature-rich, cross-platform app. The application is designed to operate efficiently across three distinct environments: Production, Development, and Testing. It leverages the power of Flutter for front-end development and Firebase for back-end services, ensuring a robust and scalable solution.
+
+## Screenshots & Videos
+
+<div style="display: flex; overflow-x: auto; white-space: nowrap;">
+  <img src="https://github.com/user-attachments/assets/46d03da7-ab1f-46fb-a062-5430928237a4" alt="Registration Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/45d18a6e-fc9f-4e88-a51d-a86bdc62c312" alt="Home Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/dd1ac778-1bd5-4999-ba97-a4c9cb7d308e" alt="Project Summary Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/0ca7e8d7-5fbb-4e34-b851-1a606672f27a" alt="Calendar  Schedule Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/55768895-01fb-45f4-b875-0044ed60cb01" alt="Calendar  Task Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/b4245dac-f929-43f6-9151-a01be594d45e" alt="Profile Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/45aba352-65df-4673-a800-9f7d2b8215db" alt="Menu  Light Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/dd895b93-8f56-4009-b4d9-d57f8670a145" alt="Registration Page Dark Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/95666186-57b8-45fa-8942-16b088df18ce" alt="Home Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/abaddc3b-a9e0-4125-b6d7-b877809ddf2f" alt="Project Summary Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/990478d3-c580-4b38-a22a-cd0e839d95e2" alt="Calendar  Schedule Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/422b156e-88a3-41d6-a91a-6d5db4ef99b6" alt="Calendar  Task Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/29051565-7cb5-4e41-bd87-b6451f03d0ed" alt="Profile Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/95a1556a-06af-4935-b37f-f9adf4245c17" alt="Menu  Dark Mode" style="max-height: 200px; margin-right: 10px;">
+</div>
 
 ### Key Aspects
 
@@ -88,14 +107,8 @@ The architecture of **BEHEER** is designed to be modular and maintainable, follo
 - **Continuous Integration/Continuous Deployment**: Utilized **GitHub Actions** and **CodeMagic** for automating the build, test, and deployment processes. This integration ensures that code changes are automatically tested and deployed, streamlining the development workflow.
 - **Store Uploading**: The application is automatically updated on the **Google Play Store** and **Apple Store** through CI/CD pipelines. This ensures that users have access to the latest features and bug fixes. APK files for the latest release are available in the GitHub release section under tag `v1.0.0`.
 
-## Screenshots & Videos
-
-Screenshots and videos showcasing the application's functionality, design, and user interface will be added in the next update. These visual elements will provide a clear demonstration of the app's features and user experience.
-
 ## Installation & Setup
 
-To get started with the **BEHEER** project, follow these steps:
-
-1. Clone the repository:
-   ```bash
+1. **Clone the Repository**: Clone this repository to your local machine using the following command:
+   ```sh
    git clone https://github.com/ahmedmahershaaban/BEHEER.git
