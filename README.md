@@ -20,22 +20,57 @@ The **BEHEER** application was developed in just 3 days, showcasing a rapid yet 
 
 ## Screenshots & Videos
 
-<div style="display: flex; overflow-x: auto; white-space: nowrap;">
-  <img src="https://github.com/user-attachments/assets/46d03da7-ab1f-46fb-a062-5430928237a4" alt="Registration Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/45d18a6e-fc9f-4e88-a51d-a86bdc62c312" alt="Home Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/dd1ac778-1bd5-4999-ba97-a4c9cb7d308e" alt="Project Summary Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/0ca7e8d7-5fbb-4e34-b851-1a606672f27a" alt="Calendar  Schedule Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/55768895-01fb-45f4-b875-0044ed60cb01" alt="Calendar  Task Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/b4245dac-f929-43f6-9151-a01be594d45e" alt="Profile Page  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/45aba352-65df-4673-a800-9f7d2b8215db" alt="Menu  Light Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/dd895b93-8f56-4009-b4d9-d57f8670a145" alt="Registration Page Dark Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/95666186-57b8-45fa-8942-16b088df18ce" alt="Home Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/abaddc3b-a9e0-4125-b6d7-b877809ddf2f" alt="Project Summary Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/990478d3-c580-4b38-a22a-cd0e839d95e2" alt="Calendar  Schedule Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/422b156e-88a3-41d6-a91a-6d5db4ef99b6" alt="Calendar  Task Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/29051565-7cb5-4e41-bd87-b6451f03d0ed" alt="Profile Page  Dark Mode" style="max-height: 200px; margin-right: 10px;">
-  <img src="https://github.com/user-attachments/assets/95a1556a-06af-4935-b37f-f9adf4245c17" alt="Menu  Dark Mode" style="max-height: 200px; margin-right: 10px;">
-</div>
+<table>
+  <tr>
+    <td><b>Registration Page Light Mode</b></td>
+    <td><b>Home Page Light Mode</b></td>
+    <td><b>Project Summary Page Light Mode</b></td>
+    <td><b>Calendar Schedule Page Light Mode</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/46d03da7-ab1f-46fb-a062-5430928237a4" width="270" height="480" alt="Registration Page Light Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/45d18a6e-fc9f-4e88-a51d-a86bdc62c312" width="270" height="480" alt="Home Page Light Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/dd1ac778-1bd5-4999-ba97-a4c9cb7d308e" width="270" height="480" alt="Project Summary Page Light Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/0ca7e8d7-5fbb-4e34-b851-1a606672f27a" width="270" height="480" alt="Calendar Schedule Page Light Mode"></td>
+  </tr>
+  <tr>
+    <td><b>Calendar Task Page Light Mode</b></td>
+    <td><b>Profile Page Light Mode</b></td>
+    <td><b>Menu Light Mode</b></td>
+     <td><b></b></td>
+ </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/55768895-01fb-45f4-b875-0044ed60cb01" width="270" height="480" alt="Calendar Task Page Light Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/b4245dac-f929-43f6-9151-a01be594d45e" width="270" height="480" alt="Profile Page Light Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/45aba352-65df-4673-a800-9f7d2b8215db" width="270" height="480" alt="Menu Light Mode"></td>
+    <td></td>
+  </tr>
+  <tr>
+     <td><b>Registration Page Dark Mode</b></td>
+     <td><b>Home Page Dark Mode</b></td>
+    <td><b>Project Summary Page Dark Mode</b></td>
+    <td><b>Calendar Schedule Page Dark Mode</b></td>
+  </tr>
+  <tr>
+     <td><img src="https://github.com/user-attachments/assets/dd895b93-8f56-4009-b4d9-d57f8670a145" width="270" height="480" alt="Registration Page Dark Mode"></td>
+     <td><img src="https://github.com/user-attachments/assets/95666186-57b8-45fa-8942-16b088df18ce" width="270" height="480" alt="Home Page Dark Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/abaddc3b-a9e0-4125-b6d7-b877809ddf2f" width="270" height="480" alt="Project Summary Page Dark Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/7ec1ee30-8754-442e-9fd1-66d464fec2bd" width="270" height="480" alt="Calendar Schedule Page Dark Mode"></td>
+  </tr>
+  <tr>
+     <td><b>Calendar Task Page Dark Mode</b></td>
+     <td><b>Profile Page Dark Mode</b></td>
+    <td><b>Menu Dark Mode</b></td>
+    <td><b></b></td>
+  </tr>
+  <tr>
+      <td><img src="https://github.com/user-attachments/assets/c7b4bd3f-87c3-4b47-b937-4139c2729956" width="270" height="480" alt="Calendar Task Page Dark Mode"></td>
+      <td><img src="https://github.com/user-attachments/assets/41e3ed76-9005-4a2a-bff1-75d28095d27f" width="270" height="480" alt="Profile Page Dark Mode"></td>
+    <td><img src="https://github.com/user-attachments/assets/9f578007-bc70-4e0e-afc0-38bf77c87c19" width="270" height="480" alt="Menu Dark Mode"></td>
+    <td></td>
+  </tr>
+</table>
+
 
 ### Key Aspects
 
@@ -112,3 +147,16 @@ The architecture of **BEHEER** is designed to be modular and maintainable, follo
 1. **Clone the Repository**: Clone this repository to your local machine using the following command:
    ```sh
    git clone https://github.com/ahmedmahershaaban/BEHEER.git
+
+## Contact
+
+**Contact Information**  
+Email: [ahmedmaher13579@outlook.com](mailto:ahmedmaher13579@outlook.com)  
+Twitter: [@Ahmed__M_Shaba](https://twitter.com/Ahmed__M_Shaba)  
+LinkedIn: [Ahmed Maher](https://linkedin.com/in/ahmed-maher0)  
+GitHub: [ahmedmahershaaban](https://github.com/ahmedmahershaaban)  
+Kaggle: [ahmedmaher00](https://kaggle.com/ahmedmaher00)
+
+
+You can also view my GitHub language statistics here:  
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedmahershaaban)](https://github.com/anuraghazra/github-readme-stats)
